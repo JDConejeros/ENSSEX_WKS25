@@ -4,48 +4,55 @@
     "href": "about.html",
     "title": "About",
     "section": "",
-    "text": "About this site\n\n1 + 1\n\n[1] 2"
+    "text": "About this site"
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "MIMIS Workshop 2024",
-    "section": "",
-    "text": "Este taller analiza las dificultades para estimar efectos causales en ciencias sociales y se introducen estrategias para abordar la causalidad mediante diseños experimentales y cuasi-experimentales.\nRequisitos: conocimientos básicos de test de hipótesis, regresión lineal y programación en R.\nTendremos tres sesiones:\nSesión 1: Problema fundamental de la inferencia causal y repaso de regresión lineal.\nLunes 04/11 de 18:00 – 20:00 hrs\nSesión 2: Diseños experimentales: aleatorización, diseño de bloques y cálculos de poder.\nLunes 11/11 de 18:00 – 20:00 hrs\nSesión 3: Técnicas con datos observacionales: matching y variables instrumentales. Lunes 18/11 de 18:00 – 20:00 hrs"
+    "objectID": "index.html#agradecimientos",
+    "href": "index.html#agradecimientos",
+    "title": "DESENTRAÑANDO LA ENCUESTA NACIONAL DE SALUD, SEXUALIDAD Y GÉNERO 2022-2023: ANÁLISIS REPRODUCIBLES EN R",
+    "section": "Agradecimientos",
+    "text": "Agradecimientos\nEste workshop ha sido posible gracias a Jaime Barrientos, Coordinador General del Congreso y del equipo de vigilancia de enfermedades no transmisibles y encuestas poblacionales, Departamento de Epidemiología, Subsecretaría de Salud Pública."
   },
   {
-    "objectID": "index.html#aproximaciones-a-la-inferencia-causal-en-ciencias-sociales",
-    "href": "index.html#aproximaciones-a-la-inferencia-causal-en-ciencias-sociales",
-    "title": "MIMIS Workshop 2024",
-    "section": "",
-    "text": "Este taller analiza las dificultades para estimar efectos causales en ciencias sociales y se introducen estrategias para abordar la causalidad mediante diseños experimentales y cuasi-experimentales.\nRequisitos: conocimientos básicos de test de hipótesis, regresión lineal y programación en R.\nTendremos tres sesiones:\nSesión 1: Problema fundamental de la inferencia causal y repaso de regresión lineal.\nLunes 04/11 de 18:00 – 20:00 hrs\nSesión 2: Diseños experimentales: aleatorización, diseño de bloques y cálculos de poder.\nLunes 11/11 de 18:00 – 20:00 hrs\nSesión 3: Técnicas con datos observacionales: matching y variables instrumentales. Lunes 18/11 de 18:00 – 20:00 hrs"
+    "objectID": "index.html#sobre-el-workshop",
+    "href": "index.html#sobre-el-workshop",
+    "title": "DESENTRAÑANDO LA ENCUESTA NACIONAL DE SALUD, SEXUALIDAD Y GÉNERO 2022-2023: ANÁLISIS REPRODUCIBLES EN R",
+    "section": "Sobre el workshop",
+    "text": "Sobre el workshop\nEste workshop busca capacitar a los participantes en el uso de datos de la Encuesta Nacional de Salud, Sexualidad y Género (ENSSEX) 2022-2023, empleando herramientas de código abierto en R para un análisis reproducible y ético.\nTendremos 4 bloques de trabajo:\nBloque 1: Exploración de los datos ENSSEX (09:00 – 11:00). Tendremos unos 20 minutos iniciales para preparar nuestra estación de trabajo\nCoffe Break\nBloque 2: Uso de ponderadores y diseño de muestra compleja (11:30 – 13:00)**.\nAlmuerzo\nBloque 3: Visualización de datos (14:00 – 16:00).\nCoffe Break\nBloque 4: Modelamiento estadístico (16:30 – 18:30).\nTodos los bloques de trabajo serán en el mismo lugar: Sala 3D, Campus B, Universidad Alberto Hurtado. Avenida Los Leones 1200. Metro Los Leones, línea 1 y 6 Metro de Santiago.\n\n\n\n\nAl final del workshop se hará llegar un certificado de asistencia para quienes participaron de todos los bloques."
   },
   {
-    "objectID": "index.html#referencias",
-    "href": "index.html#referencias",
-    "title": "MIMIS Workshop 2024",
-    "section": "Referencias",
-    "text": "Referencias\nAngrist, J. D. y J. Pischke (2015). Mastering ’Metrics: The Path from Cause to Effect. Princeton University Press.\nCunningham, S. (2021). Causal inference. In Causal Inference. Yale University Press. Versión en inglés: https://mixtape.scunning.com/\nGerber, A. S. y D. P. Green (2012). Field Experiments: Design, Analysis, and Interpretation. New York: W. W. Norton.\nHuntington-Klein, N. (2021). The effect: An introduction to research design and causality. Chapman and Hall/CRC. Versión en inglés: https://theeffectbook.net/index.html\nPearl, J., & Mackenzie, D. (2018). The book of why: the new science of cause and effect. Basic books. Lo puede encontrar aquí.\nStock, J. and Watson, M., Introduction to Econometrics, 3rd edition. (Disponible en Biblioteca SJ-UC)."
+    "objectID": "index.html#para-quién-está-pensado-este-workshop",
+    "href": "index.html#para-quién-está-pensado-este-workshop",
+    "title": "DESENTRAÑANDO LA ENCUESTA NACIONAL DE SALUD, SEXUALIDAD Y GÉNERO 2022-2023: ANÁLISIS REPRODUCIBLES EN R",
+    "section": "¿Para quién está pensado este workshop?",
+    "text": "¿Para quién está pensado este workshop?\n\nInvestigadores/as y académicos/as en ciencias sociales, salud pública y áreas afines al congreso.\nEstudiantes avanzados/as de pregrado o postgrado con interés en análisis de datos y áreas afines al congreso.\nProfesionales interesados/as en datos sobre salud sexualidad y género, y su análisis riguroso."
+  },
+  {
+    "objectID": "index.html#requisitos",
+    "href": "index.html#requisitos",
+    "title": "DESENTRAÑANDO LA ENCUESTA NACIONAL DE SALUD, SEXUALIDAD Y GÉNERO 2022-2023: ANÁLISIS REPRODUCIBLES EN R",
+    "section": "Requisitos",
+    "text": "Requisitos\nEste workshop no tiene requisitos previos, pero se valora conocimientos básicos de R y RStudio, además de cierta familiaridad con conceptos de estadística descriptiva e inferencial.\nLa sala 3D dispone de computadores para trabajar, si usted quisiera llevar un computador asegúrse de que cumpla con los siguiente requisitos (es el estándar de los computadores actuales):\n✅ Procesador: Intel Core i5 (8ª generación o superior) / AMD Ryzen 5 o equivalente.\n✅ Memoria RAM: 8 GB de base (16 GB recomendado para un mejor rendimiento).\n✅ Espacio en disco: Al menos 10 GB de espacio libre en el disco duro o SSD (SSD recomendado para mayor velocidad).\n✅ Conectividad: Wi-Fi funcional para acceder a materiales y paquetes en línea.\n✅ Sistema operativo compatible: Windows 10 o superior / macOS 10.15 (Catalina) o superior / Linux (Ubuntu 20.04 o superior).\nPara quiénes quieran llevar su computador les recomendamos encarecidamente llevar instalado:\n✅ R versión 4.2 o superior instalado.\n✅ RStudio versión 2023.09.0 o superior instalado.\nPara instalar ambos pueden acceder al siguiente enlace: https://posit.co/download/rstudio-desktop/\n\n\n\n\n\nPueden instalar ambos en menos de 4 minutos con estos videos:\n\n\n\n\nEn 6 minutos pueden tener una idea clara de cómo es el trabajo en RStudio:"
+  },
+  {
+    "objectID": "index.html#librerías-de-trabajo",
+    "href": "index.html#librerías-de-trabajo",
+    "title": "DESENTRAÑANDO LA ENCUESTA NACIONAL DE SALUD, SEXUALIDAD Y GÉNERO 2022-2023: ANÁLISIS REPRODUCIBLES EN R",
+    "section": "Librerías de trabajo",
+    "text": "Librerías de trabajo\nCada bloque tendrá librerías específicas de trabajo, pero si quieren avanzar pueden instalar los siguientes (copia y pega este código en tu consola de RStudio):\n\n# Listamos las librerías necesarias para el workshop\npaquetes &lt;- c(\"tidyverse\", \"survey\", \"srvyr\", \"ggplot2\", \"rio\", \n              \"haven\", \"broom\", \"janitor\", \"labelled\")\n\n# Este código permite instalar solo las librerías que no están instalados en nuestro computador\npaquetes_instalar &lt;- paquetes[!paquetes %in% installed.packages()[, \"Package\"]]\n\nif(length(paquetes_instalar) &gt; 0) {\n  install.packages(paquetes_instalar, dependencies = TRUE)\n}\n\n# Cargamos los paquetes en nuestra sesión de trabajo\nlapply(paquetes, library, character.only = TRUE)\n\nTe dejamos una pequeña descripción de las librería de trabajo:\n\n\n\n\n\n\n\nPaquete\nDescripción\n\n\n\n\ntidyverse\nManipulación y visualización de datos. Incluye dplyr, ggplot2, readr, entre otros.\n\n\nsurvey\nAnálisis con ponderadores y diseños de muestra compleja.\n\n\nsrvyr\nVersión más amigable del paquete survey, compatible con tidyverse.\n\n\nggplot2\nCreación de gráficos personalizables.\n\n\nhaven\nImportación de datos en formato SPSS, Stata y SAS.\n\n\nbroom\nPresentación ordenada de resultados de modelos estadísticos.\n\n\njanitor\nLimpieza y formateo de datos, especialmente útil para tablas con nombres de variables desordenados.\n\n\nlabelled\nManejo de etiquetas en datos provenientes de encuestas.\n\n\nrio\nCarga y exportación sencilla de archivos de múltiples formatos (.sav, .dta, .csv, .xlsx).\n\n\ngtsummary\nCreación de tablas estadísticas descriptivas y de modelos.\n\n\n\nEstaremos disponibles desde las 8:30 para resolver dudas o problemas de instalación fuera de la sala del workshop. Cualquier duda pueden escribir a jdconejeros@uc.cl"
+  },
+  {
+    "objectID": "index.html#encuesta-nacional-de-salud-sexualidad-y-género-enssex-2022-2023",
+    "href": "index.html#encuesta-nacional-de-salud-sexualidad-y-género-enssex-2022-2023",
+    "title": "DESENTRAÑANDO LA ENCUESTA NACIONAL DE SALUD, SEXUALIDAD Y GÉNERO 2022-2023: ANÁLISIS REPRODUCIBLES EN R",
+    "section": "Encuesta Nacional de Salud, Sexualidad y Género (ENSSEX) 2022-2023",
+    "text": "Encuesta Nacional de Salud, Sexualidad y Género (ENSSEX) 2022-2023\nLa Encuesta Nacional de Salud, Sexualidad y Género (ENSSEX) 2022-2023 es un instrumento clave para el análisis de la salud y la sexualidad en Chile, proporcionando información representativa a nivel nacional.\nDescripción breve:\n\n📅 Año de levantamiento: 2022-2023\n\n📍 Cobertura: Nacional\n\n📋 Temas principales: Salud, sexualidad, género, acceso a servicios de salud\n\n📂 Formato de datos: CSV, SAV, XLSX, RDATA\n\n🔗 Datos oficiales: Encuesta ENSSEX 2022-2023 en Datos.gob.cl\n\n\n\n\nLos datos están disponibles en formato abierto, permitiendo su uso para análisis estadísticos y estudios en diversas disciplinas. Recomendamos descargar los datos previamente (formato .Rdata o .sav), Si tiene problemas para descargar los datos puede hacer click en el siguiente enlace:\n\nhttps://epi.minsal.cl/bases-de-datos/\nhttps://www.dropbox.com/scl/fo/c3ji5go7mp5bnvlbx2nv1/ADmu_3oR150ouZBIygzI4xU?rlkey=8cr09sh2sammtqchqa16bi252&st=pemn0zxp&dl=0"
   },
   {
     "objectID": "index.html#links-complementarios",
     "href": "index.html#links-complementarios",
-    "title": "MIMIS Workshop 2024",
+    "title": "DESENTRAÑANDO LA ENCUESTA NACIONAL DE SALUD, SEXUALIDAD Y GÉNERO 2022-2023: ANÁLISIS REPRODUCIBLES EN R",
     "section": "Links Complementarios",
-    "text": "Links Complementarios\n\nR para Ciencia de Datos: Libro base para el uso de R, aquí podrán ver que la plataforma de Rstudio no es solo para el análisis estadístico, sino que de procesamiento de datos y reporte (versión en español).\nAnalizaR Datos Políticos: Manual con herramientas y tips prácticos para analizar datos políticos.\nUCLA: Espacio para aprender estadística y programación.\nCausal Inference in R: Libro que utiliza una combinación de ejemplos de la medicina, la economía y la tecnología para demostrar que se necesita una pregunta causal clara y la voluntad de ser transparente sobre las suposiciones."
-  },
-  {
-    "objectID": "index.html#comunidades-y-foros",
-    "href": "index.html#comunidades-y-foros",
-    "title": "MIMIS Workshop 2024",
-    "section": "Comunidades y foros",
-    "text": "Comunidades y foros\nPara los que alguna vez fuimos nuevos en RStudio sirve bastante ver las preguntas/respuestas de otras personas en las comunidades de R (¡son muy activas!). De hecho, casi todas nuestras preguntas ya fueron respondidas por personas en todo el mundo. No olvidar que la mayoría de estos foros están en inglés:\n\nRStudio Community\nStackoverflow"
-  },
-  {
-    "objectID": "index.html#otros-enlaces-de-interés",
-    "href": "index.html#otros-enlaces-de-interés",
-    "title": "MIMIS Workshop 2024",
-    "section": "Otros enlaces de interés",
-    "text": "Otros enlaces de interés\n\nCompendio de links útiles\nConectarse a Github desde R"
+    "text": "Links Complementarios\nPara seguir profundizando les dejamos algunos enlaces de interés:\n\nR para Ciencia de Datos: Libro base para el uso de R, aquí podrán ver que la plataforma de Rstudio no es solo para el análisis estadístico, sino que de procesamiento de datos y reporte (versión en español).\nAnalizaR Datos Políticos: Manual con herramientas y tips prácticos para analizar datos políticos.\nUCLA: Espacio para aprender estadística y programación.\nCompendio de links útiles"
   }
 ]

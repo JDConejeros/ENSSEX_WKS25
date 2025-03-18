@@ -6,3 +6,143 @@
 .center {
   text-align: center !important
 }
+
+.footer-banner {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: white;
+  color: black;
+  text-align: center;
+  padding: 10px 0;
+  font-size: 16px;
+  font-weight: bold;
+  border-top: 2px solid black;
+  z-index: 1000;
+}
+
+/* 🟣 Estilos generales */
+
+/* 🔹 Títulos con línea negra debajo */
+
+/* 📊 Tablas con formato limpio */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+
+th, td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: left;
+}
+
+th {
+  background-color: #F5F5F5;
+  font-weight: bold;
+}
+
+/* 🟣 Botones en violeta oscuro */
+button {
+  background-color: #5D3A9B; /* Violeta oscuro */
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: #432F82; /* Violeta más oscuro al pasar el mouse */
+}
+
+/* 🔗 Hipervínculos en violeta oscuro */
+a, a:visited {
+  color: #5D3A9B !important; /* Violeta oscuro */
+  text-decoration: underline;
+}
+
+a:hover, a:focus {
+  color: #432F82 !important; /* Violeta más oscuro al pasar el mouse */
+  text-decoration: underline;
+}
+
+/* 📚 Estilo del TOC (Tabla de Contenidos) */
+.tocify {
+  background-color: #F5F5F5; /* Fondo claro */
+}
+
+.tocify a, .sidebar a, nav a {
+  color: #5D3A9B !important; /* Enlaces del TOC y menú en violeta oscuro */
+  font-weight: bold;
+}
+
+.tocify a:hover, .sidebar a:hover, nav a:hover {
+  color: #432F82 !important; /* Enlaces más oscuros al pasar el mouse */
+}
+
+/* 📢 Banner fijo al final en violeta oscuro */
+.footer-banner {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: white;
+  color: #5D3A9B !important; /* Texto del banner en violeta oscuro */
+  text-align: center;
+  padding: 10px 0;
+  font-size: 16px;
+  font-weight: bold;
+  border-top: 2px solid #5D3A9B; /* Línea en violeta oscuro */
+  z-index: 1000;
+}
+
+/****************************************************/
+/* 🎨 Modo oscuro */
+.dark-mode {
+  background-color: #1e1e1e;
+  color: #ffffff;
+}
+
+/* 🎨 Enlaces en modo oscuro */
+.dark-mode a {
+  color: #bb86fc !important; /* Violeta más claro en modo oscuro */
+}
+
+.dark-mode a:hover {
+  color: #9b5de5 !important;
+}
+
+/* 🎨 Tablas en modo oscuro */
+.dark-mode table {
+  border-color: #444;
+}
+
+.dark-mode th {
+  background-color: #333;
+}
+
+.dark-mode td {
+  background-color: #222;
+  color: #ddd;
+}
+
+/* 🎨 Botón de modo noche/día */
+.toggle-theme {
+  position: fixed;
+  top: 15px;
+  right: 20px;
+  background-color: #5D3A9B;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 5px;
+  z-index: 1000;
+}
+
+.toggle-theme:hover {
+  background-color: #432F82;
+}
