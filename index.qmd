@@ -1,45 +1,188 @@
 ---
-title: "MIMIS Workshop 2024"
+title: "DESENTRAÑANDO LA ENCUESTA NACIONAL DE SALUD, SEXUALIDAD Y GÉNERO 2022-2023: ANÁLISIS REPRODUCIBLES EN R"
+subtitle: "Primer congreso chileno de estudios interdisciplinarios sobre diversidad sexual y de género."
 author: 
-  - José Conejeros <br> <jose.conejeros1@mail.udp.cl>
-date: last-modified
-date-format: 'dddd DD [de] MMMM, YYYY'
+- name: José Daniel Conejeros
+  email: jdconejeros@uc.cl
+  corresponding: true
+  affiliations: Pontificia Universidad Católica de Chile
+- name: Javiera Porcel
+  email: jfporcel@uc.cl
+  corresponding: true
+date: today
+date-format: long
 ---
 
-## Aproximaciones a la inferencia causal en ciencias sociales
+![](images/banner.png){fig-align="center" width="900"}
 
-Este taller analiza las dificultades para estimar efectos causales en ciencias sociales y se introducen estrategias para abordar la causalidad mediante diseños experimentales y cuasi-experimentales. 
+## Agradecimientos
 
-**Requisitos:** conocimientos básicos de test de hipótesis, regresión lineal y programación en `R`.
+Este workshop ha sido posible gracias a [Jaime Barrientos](https://congresoestudiosexgen.investigasexgen.com/), Coordinador General del Congreso  y del equipo de vigilancia de enfermedades no transmisibles y encuestas poblacionales, [Departamento de Epidemiología, Subsecretaría de Salud Pública](http://epi.minsal.cl/). 
 
-Tendremos tres sesiones: 
+## Sobre el workshop 
 
-[Sesión 1](https://jdconejeros.github.io/MIMIS-WKs2024.github.io/S1.html): **Problema fundamental de la inferencia causal y repaso de regresión lineal**. 
+Este workshop busca capacitar a los participantes en el uso de datos de la Encuesta Nacional de Salud, Sexualidad y Género (ENSSEX) 2022-2023, empleando herramientas de código abierto en R para un análisis reproducible y ético.
 
-Lunes 04/11 de 18:00 – 20:00 hrs
+Tendremos 4 bloques de trabajo: 
 
-[Sesión 2](https://jdconejeros.github.io/MIMIS-WKs2024.github.io/S2.html): **Diseños experimentales: aleatorización, diseño de bloques y cálculos de poder**. 
+[**Bloque 1**](): **Exploración de los datos ENSSEX (09:00 – 11:00)**. *Tendremos unos 20 minutos iniciales para preparar nuestra estación de trabajo*
 
-Lunes 11/11 de 18:00 – 20:00 hrs
+*Coffe Break*
 
-[Sesión 3](https://jdconejeros.github.io/MIMIS-WKs2024.github.io/S3.html): **Técnicas con datos observacionales: matching y variables instrumentales**. 
-Lunes 18/11 de 18:00 – 20:00 hrs
+[**Bloque 2**]()**: **Uso de ponderadores y diseño de muestra compleja (11:30 – 13:00)**. 
 
-## Referencias 
+*Almuerzo*
 
-Angrist, J. D. y J. Pischke (2015). Mastering ’Metrics: The Path from Cause to Effect. Princeton University Press.
+[**Bloque 3**](): **Visualización de datos (14:00 – 16:00)**. 
 
-Cunningham, S. (2021). Causal inference. In Causal Inference. Yale University Press. Versión en inglés: <https://mixtape.scunning.com/>
+*Coffe Break*
 
-Gerber, A. S. y D. P. Green (2012). Field Experiments: Design, Analysis, and Interpretation. New York: W. W. Norton.
+[**Bloque 4**](): **Modelamiento estadístico (16:30 – 18:30)**. 
 
-Huntington-Klein, N. (2021). The effect: An introduction to research design and causality. Chapman and Hall/CRC. Versión en inglés: <https://theeffectbook.net/index.html>
+Todos los bloques de trabajo serán en el mismo lugar: **Sala 3D, Campus B, Universidad Alberto Hurtado**. Avenida Los Leones 1200. Metro Los Leones, línea 1 y 6 Metro de Santiago.
 
-Pearl, J., & Mackenzie, D. (2018). The book of why: the new science of cause and effect. Basic books. Lo puede encontrar [aquí](http://repo.darmajaya.ac.id/5342/1/The%20book%20of%20why_%20the%20new%20science%20of%20cause%20and%20effect%20%28%20PDFDrive%20%29.pdf).
+::: {.cell}
+<iframe 
+    width="600" 
+    height="450" 
+    style="border:0" 
+    loading="lazy" 
+    allowfullscreen 
+    referrerpolicy="no-referrer-when-downgrade"
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3329.715390166454!2d-70.60336092339299!3d-33.4252704733719!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662cf3b45d3bf81%3A0xd6f72b9f8c85b365!2sAv.%20Los%20Leones%201200%2C%20Providencia%2C%20Regi%C3%B3n%20Metropolitana!5e0!3m2!1ses!2scl!4v1710769656216"
+></iframe>
+:::
 
-Stock, J. and Watson, M., Introduction to Econometrics, 3rd edition. (Disponible en Biblioteca SJ-UC).
+**Al final del workshop se hará llegar un certificado de asistencia para quienes participaron de todos los bloques.**
+
+## ¿Para quién está pensado este workshop?
+
+- Investigadores/as y académicos/as en ciencias sociales, salud pública y áreas afines al congreso. 
+
+- Estudiantes avanzados/as de pregrado o postgrado con interés en análisis de datos y áreas afines al congreso.
+
+- Profesionales interesados/as en datos sobre salud sexualidad y género, y su análisis riguroso.
+
+## Requisitos 
+
+Este workshop no tiene requisitos previos, pero se valora conocimientos básicos de R y RStudio, además de cierta familiaridad con conceptos de estadística descriptiva e inferencial. 
+
+**La sala 3D dispone de computadores para trabajar, si usted quisiera llevar un computador** asegúrse de que cumpla con los siguiente requisitos (es el estándar de los computadores actuales): 
+
+✅ Procesador: Intel Core i5 (8ª generación o superior) / AMD Ryzen 5 o equivalente.
+
+✅ Memoria RAM: 8 GB de base (16 GB recomendado para un mejor rendimiento).
+
+✅ Espacio en disco: Al menos 10 GB de espacio libre en el disco duro o SSD (SSD recomendado para mayor velocidad).
+
+✅ Conectividad: Wi-Fi funcional para acceder a materiales y paquetes en línea.
+
+✅ Sistema operativo compatible: Windows 10 o superior / macOS 10.15 (Catalina) o superior / Linux (Ubuntu 20.04 o superior).
+
+**Para quiénes quieran llevar su computador** les recomendamos encarecidamente llevar instalado:
+
+✅ R versión 4.2 o superior instalado.
+
+✅ RStudio versión 2023.09.0 o superior instalado.
+
+Para instalar ambos pueden acceder al siguiente enlace: <https://posit.co/download/rstudio-desktop/>
+
+![](images/r_rstudio.png){fig-align="center" width="900"}
+
+Pueden instalar ambos en menos de 4 minutos con estos videos: 
+
+::: {.cell}
+<iframe width="590" height="420" 
+    src="https://www.youtube.com/embed/RYa_xYWKPVM" 
+    frameborder="0" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+    allowfullscreen>
+</iframe>
+:::
+
+En 6 minutos pueden tener una idea clara de cómo es el trabajo en RStudio: 
+
+::: {.cell}
+<iframe width="590" height="420" 
+    src="https://www.youtube.com/embed/GfIFbmKuHeQ" 
+    frameborder="0" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+    allowfullscreen>
+</iframe>
+:::
+
+## Librerías de trabajo 
+
+Cada bloque tendrá librerías específicas de trabajo, pero si quieren avanzar pueden instalar los siguientes (copia y pega este código en tu consola de RStudio): 
+
+```{r}
+#| eval: false
+# Listamos las librerías necesarias para el workshop
+paquetes <- c("tidyverse", "survey", "srvyr", "ggplot2", "rio", 
+              "haven", "broom", "janitor", "labelled")
+
+# Este código permite instalar solo las librerías que no están instalados en nuestro computador
+paquetes_instalar <- paquetes[!paquetes %in% installed.packages()[, "Package"]]
+
+if(length(paquetes_instalar) > 0) {
+  install.packages(paquetes_instalar, dependencies = TRUE)
+}
+
+# Cargamos los paquetes en nuestra sesión de trabajo
+lapply(paquetes, library, character.only = TRUE)
+```
+
+Te dejamos una pequeña descripción de las librería de trabajo:
+
+| **Paquete**   | **Descripción** |
+|--------------|------------------|
+| `tidyverse`  | Manipulación y visualización de datos. Incluye `dplyr`, `ggplot2`, `readr`, entre otros. |
+| `survey`     | Análisis con ponderadores y diseños de muestra compleja. |
+| `srvyr`      | Versión más amigable del paquete `survey`, compatible con `tidyverse`. |
+| `ggplot2`    | Creación de gráficos personalizables. |
+| `haven`      | Importación de datos en formato SPSS, Stata y SAS. |
+| `broom`      | Presentación ordenada de resultados de modelos estadísticos. |
+| `janitor`    | Limpieza y formateo de datos, especialmente útil para tablas con nombres de variables desordenados. |
+| `labelled`   | Manejo de etiquetas en datos provenientes de encuestas. |
+| `rio`        | Carga y exportación sencilla de archivos de múltiples formatos (`.sav`, `.dta`, `.csv`, `.xlsx`). |
+| `gtsummary`  | Creación de tablas estadísticas descriptivas y de modelos. |
+
+
+**Estaremos disponibles desde las 8:30 para resolver dudas o problemas de instalación fuera de la sala del workshop**. Cualquier duda pueden escribir a  <jdconejeros@uc.cl>
+
+## Encuesta Nacional de Salud, Sexualidad y Género (ENSSEX) 2022-2023
+
+La Encuesta Nacional de Salud, Sexualidad y Género (ENSSEX) 2022-2023 es un instrumento clave para el análisis de la salud y la sexualidad en Chile, proporcionando información representativa a nivel nacional.
+
+
+**Descripción breve:**
+
+- 📅 **Año de levantamiento:** 2022-2023  
+- 📍 **Cobertura:** Nacional  
+- 📋 **Temas principales:** Salud, sexualidad, género, acceso a servicios de salud  
+- 📂 **Formato de datos:** CSV, SAV, XLSX, RDATA 
+
+🔗 **Datos oficiales:** [Encuesta ENSSEX 2022-2023 en Datos.gob.cl](https://datos.gob.cl/dataset/encuesta-nacional-de-salud-sexualidad-y-genero-enssex-2022-2023)
+
+
+::: {.cell}
+<iframe 
+    src="https://datos.gob.cl/dataset/encuesta-nacional-de-salud-sexualidad-y-genero-enssex-2022-2023"
+    width="100%" 
+    height="600px" 
+    style="border: 1px solid #ccc;">
+</iframe>
+:::
+
+Los datos están disponibles en formato abierto, permitiendo su uso para análisis estadísticos y estudios en diversas disciplinas. Recomendamos descargar los datos previamente (formato `.Rdata` o `.sav`), **Si tiene problemas para descargar los datos puede hacer click en el siguiente enlace:** 
+
+- <https://epi.minsal.cl/bases-de-datos/> 
+
+- <https://www.dropbox.com/scl/fo/c3ji5go7mp5bnvlbx2nv1/ADmu_3oR150ouZBIygzI4xU?rlkey=8cr09sh2sammtqchqa16bi252&st=pemn0zxp&dl=0>
 
 ## Links Complementarios
+
+Para seguir profundizando les dejamos algunos enlaces de interés:
 
 - [R para Ciencia de Datos](https://r4ds.hadley.nz/): Libro base para el uso de R, aquí podrán ver que la plataforma de Rstudio no es solo para el análisis estadístico, sino que de procesamiento de datos y reporte (versión en español).
 
@@ -47,18 +190,5 @@ Stock, J. and Watson, M., Introduction to Econometrics, 3rd edition. (Disponible
 
 - [UCLA](https://stats.oarc.ucla.edu/r/): Espacio para aprender estadística y programación.
 
-- [Causal Inference in R](https://www.r-causal.org/): Libro que utiliza una combinación de ejemplos de la medicina, la economía y la tecnología para demostrar que se necesita una pregunta causal clara y la voluntad de ser transparente sobre las suposiciones.
+- [Compendio de links útiles](https://www.lecy.info/r-for-public-policy)
 
-## Comunidades y foros
-
-Para los que alguna vez fuimos nuevos en RStudio sirve bastante ver las preguntas/respuestas de otras personas en las comunidades de R (¡son muy activas!). De hecho, casi todas nuestras preguntas ya fueron respondidas por personas en todo el mundo. No olvidar que la mayoría de estos foros están en inglés:
-
-+ [RStudio Community](https://community.rstudio.com/)
-
-+ [Stackoverflow](https://stackoverflow.com/questions/tagged/r)
-
-## Otros enlaces de interés
-
-+ [Compendio de links útiles](https://www.lecy.info/r-for-public-policy)
-
-+ [Conectarse a Github desde R](https://happygitwithr.com/rstudio-git-github.html#clone-the-new-github-repository-to-your-computer-via-rstudio)

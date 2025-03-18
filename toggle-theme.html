@@ -1,0 +1,25 @@
+<button class="toggle-theme" onclick="toggleTheme()">🌙 Modo Noche</button>
+
+<script>
+  function toggleTheme() {
+    const body = document.body;
+    body.classList.toggle("dark-mode");
+
+    // Guardar preferencia en LocalStorage
+    if (body.classList.contains("dark-mode")) {
+      localStorage.setItem("theme", "dark");
+      document.querySelector(".toggle-theme").innerText = "☀️ Modo Día";
+    } else {
+      localStorage.setItem("theme", "light");
+      document.querySelector(".toggle-theme").innerText = "🌙 Modo Noche";
+    }
+  }
+
+  // Aplicar el tema guardado al recargar la página
+  window.onload = function () {
+    if (localStorage.getItem("theme") === "dark") {
+      document.body.classList.add("dark-mode");
+      document.querySelector(".toggle-theme").innerText = "☀️ Modo Día";
+    }
+  };
+</script>

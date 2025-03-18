@@ -2,20 +2,41 @@ project:
   type: website
 
 website:
-  title: "ENSSEX_WKS25"
+  title: ""
   navbar:
     left:
       - href: index.qmd
-        text: Home
-      - about.qmd
+        text: ENSSEX Workshop 2025
+      - href: B1.qmd
+        text: Bloque 1
+      - href: B2.qmd
+        text: Bloque 2
+      - href: B3.qmd
+        text: Bloque 3
+      - href: B4.qmd
+        text: Bloque 4
+lang: es    
 
 format:
   html:
-    theme:
-      - cosmo
-      - brand
+    theme: cosmo
     css: styles.css
     toc: true
+    #embed-resources: true
+    smooth-scroll: true
+    code-copy: true
+    code-link: true
+    code-fold: false
+    code-tools: true
+    code-summary: "Click para ver el código"
+    anchor-sections: true
+    code-overflow: wrap
+    fig-cap-location: top
+    include-after-body: toggle-theme.html
+    after-body: |
+      <div class="footer-banner">
+        🏳️‍🌈 Encuentro Nacional de Salud, Sexualidad y Género | Evento 2025 📢
+      </div>
 
 
 
