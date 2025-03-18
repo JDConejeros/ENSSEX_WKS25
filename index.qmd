@@ -29,7 +29,7 @@ Tendremos 4 bloques de trabajo:
 
 *Coffe Break*
 
-[**Bloque 2**]()**: **Uso de ponderadores y diseño de muestra compleja (11:30 – 13:00)**. 
+[**Bloque 2**](): **Uso de ponderadores y diseño de muestra compleja (11:30 – 13:00)**. 
 
 *Almuerzo*
 
