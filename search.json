@@ -1,10 +1,73 @@
 [
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "About this site"
+    "objectID": "B2.html#diseño-muestral-enssex",
+    "href": "B2.html#diseño-muestral-enssex",
+    "title": "Bloque 2",
+    "section": "Diseño muestral ENSSEX",
+    "text": "Diseño muestral ENSSEX"
+  },
+  {
+    "objectID": "B2.html#aplicación-de-un-diseño-muestral-complejo-en-r",
+    "href": "B2.html#aplicación-de-un-diseño-muestral-complejo-en-r",
+    "title": "Bloque 2",
+    "section": "Aplicación de un diseño muestral complejo en R",
+    "text": "Aplicación de un diseño muestral complejo en R\n\nUso de surveydesign\n\n\nResultados ponderados vs no ponderados\n\n\nAlgo más intuitivo srvyr"
+  },
+  {
+    "objectID": "B2.html#estimaciones-descriptivas-ponderadas",
+    "href": "B2.html#estimaciones-descriptivas-ponderadas",
+    "title": "Bloque 2",
+    "section": "Estimaciones descriptivas ponderadas",
+    "text": "Estimaciones descriptivas ponderadas\n\nProporciones y medias ajustadas\n\n\nIntervalos de confianza\n\n\nComparación de subgrupos"
+  },
+  {
+    "objectID": "B2.html#ajuste-de-varianzas-y-errores-estándar",
+    "href": "B2.html#ajuste-de-varianzas-y-errores-estándar",
+    "title": "Bloque 2",
+    "section": "Ajuste de varianzas y errores estándar",
+    "text": "Ajuste de varianzas y errores estándar\n\n¿Importa ajustar por el diseño muestral?"
+  },
+  {
+    "objectID": "B2.html#replicación-de-resultados",
+    "href": "B2.html#replicación-de-resultados",
+    "title": "Bloque 2",
+    "section": "Replicación de resultados",
+    "text": "Replicación de resultados"
+  },
+  {
+    "objectID": "B3.html#buenas-prácticas-en-la-visualización-de-datos",
+    "href": "B3.html#buenas-prácticas-en-la-visualización-de-datos",
+    "title": "Bloque 3",
+    "section": "Buenas prácticas en la visualización de datos",
+    "text": "Buenas prácticas en la visualización de datos\n\nTipos de gráficos\n\n\nUso de escalas adecuadas y manejo de outliers\n\n\nColores accesibles y representación ética de la información."
+  },
+  {
+    "objectID": "B3.html#gramática-de-gráficos-con-ggplot2",
+    "href": "B3.html#gramática-de-gráficos-con-ggplot2",
+    "title": "Bloque 3",
+    "section": "Gramática de gráficos con ggplot2",
+    "text": "Gramática de gráficos con ggplot2\n\nGráficos descriptivos\n\n\nComparaciones entre grupos\n\n\nGraficos avanzados"
+  },
+  {
+    "objectID": "B3.html#repliquemos-algunos-gráficos",
+    "href": "B3.html#repliquemos-algunos-gráficos",
+    "title": "Bloque 3",
+    "section": "Repliquemos algunos gráficos",
+    "text": "Repliquemos algunos gráficos"
+  },
+  {
+    "objectID": "B1.html#cómo-se-construyo-la-encuesta-nacioanl-de-salud-sexualidad-y-género-2022---2023",
+    "href": "B1.html#cómo-se-construyo-la-encuesta-nacioanl-de-salud-sexualidad-y-género-2022---2023",
+    "title": "Bloque 1",
+    "section": "¿Cómo se construyo la Encuesta Nacioanl de Salud, Sexualidad y Género 2022 - 2023?",
+    "text": "¿Cómo se construyo la Encuesta Nacioanl de Salud, Sexualidad y Género 2022 - 2023?\n\nPropósito y alcance de la encuesta\n\n\nAlcance poblacional y representatividad de los datos\n\n\nEnfoque en salud, sexualidad y género\n\n\nDiseño metodológico"
+  },
+  {
+    "objectID": "B1.html#exploración-inicial-de-la-enssex",
+    "href": "B1.html#exploración-inicial-de-la-enssex",
+    "title": "Bloque 1",
+    "section": "Exploración inicial de la ENSSEX",
+    "text": "Exploración inicial de la ENSSEX\n\nLibrerías a utilizar\n\n\n¿Importar, cargar o abrir los datos?\n\n\nEstructura general de datos\n\n\nVariables, libro de códigos y manejo de etiquetas\n\n\nValidación de datos\n\n\nAnálisis exploratorio"
   },
   {
     "objectID": "index.html#agradecimientos",
@@ -56,17 +119,45 @@
     "text": "Links Complementarios\nPara seguir profundizando les dejamos algunos enlaces de interés:\n\nR para Ciencia de Datos: Libro base para el uso de R, aquí podrán ver que la plataforma de Rstudio no es solo para el análisis estadístico, sino que de procesamiento de datos y reporte (versión en español).\nAnalizaR Datos Políticos: Manual con herramientas y tips prácticos para analizar datos políticos.\nUCLA: Espacio para aprender estadística y programación.\nCompendio de links útiles"
   },
   {
-    "objectID": "B1.html#cómo-se-construyo-la-encuesta-nacioanl-de-salud-sexualidad-y-género-2022---2023",
-    "href": "B1.html#cómo-se-construyo-la-encuesta-nacioanl-de-salud-sexualidad-y-género-2022---2023",
-    "title": "Bloque 1",
-    "section": "¿Cómo se construyo la Encuesta Nacioanl de Salud, Sexualidad y Género 2022 - 2023?",
-    "text": "¿Cómo se construyo la Encuesta Nacioanl de Salud, Sexualidad y Género 2022 - 2023?\n\nPropósito y alcance de la encuesta\n\n\nAlcance poblacional y representatividad de los datos\n\n\nEnfoque en salud, sexualidad y género\n\n\nDiseño metodológico"
+    "objectID": "B4.html#introducción-a-los-modelos-con-encuestas",
+    "href": "B4.html#introducción-a-los-modelos-con-encuestas",
+    "title": "Bloque 4",
+    "section": "Introducción a los modelos con encuestas",
+    "text": "Introducción a los modelos con encuestas"
   },
   {
-    "objectID": "B1.html#exploración-inicial-de-la-enssex",
-    "href": "B1.html#exploración-inicial-de-la-enssex",
-    "title": "Bloque 1",
-    "section": "Exploración inicial de la ENSSEX",
-    "text": "Exploración inicial de la ENSSEX\n\nLibrerías a utilizar\n\n\n¿Importar, cargar o abrir los datos?\n\n\nEstructura general de datos\n\n\nVariables, libro de códigos y manejo de etiquetas\n\n\nValidación de datos\n\n\nAnálisis exploratorio"
+    "objectID": "B4.html#regresión-lineal-y-anova",
+    "href": "B4.html#regresión-lineal-y-anova",
+    "title": "Bloque 4",
+    "section": "Regresión lineal y ANOVA",
+    "text": "Regresión lineal y ANOVA"
+  },
+  {
+    "objectID": "B4.html#regresión-logística",
+    "href": "B4.html#regresión-logística",
+    "title": "Bloque 4",
+    "section": "Regresión logística",
+    "text": "Regresión logística"
+  },
+  {
+    "objectID": "B4.html#aplicación-i-análisis-de-sobrevivencia",
+    "href": "B4.html#aplicación-i-análisis-de-sobrevivencia",
+    "title": "Bloque 4",
+    "section": "Aplicación I: análisis de sobrevivencia",
+    "text": "Aplicación I: análisis de sobrevivencia"
+  },
+  {
+    "objectID": "B4.html#aplicación-ii-análisis-de-clusters-y-segmentación",
+    "href": "B4.html#aplicación-ii-análisis-de-clusters-y-segmentación",
+    "title": "Bloque 4",
+    "section": "Aplicación II: Análisis de clusters y segmentación",
+    "text": "Aplicación II: Análisis de clusters y segmentación"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site"
   }
 ]
