@@ -85,16 +85,16 @@ Para el análisis de los datos de la ENSSEX en R, se pueden utilizar las siguien
 #| warning: false
 #| message: false
 #| echo: true
+#| results: hide
 
 # Para instalar manualmente 
-#install.packages("dplyr")
-#install.packages("rio")
-#install.packages("haven")
-#install.packages("janitor")
-#install.packages("labelled")
-#install.packages("tidyverse")
-#install.packages("naniar")
-#install.packages("sjPlot")
+install.packages("tidyverse")
+install.packages("rio")
+install.packages("haven")
+install.packages("janitor")
+install.packages("labelled")
+install.packages("naniar")
+install.packages("sjPlot")
 
 # Cargamos las librerías de trabajo 
 library("tidyverse")
