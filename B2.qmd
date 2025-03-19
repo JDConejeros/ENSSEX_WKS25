@@ -1,0 +1,68 @@
+---
+title: "Bloque 2"
+subtitle: |
+    | Uso de ponderadores y diseño de muestra compleja.
+    | Primer congreso chileno de estudios interdisciplinarios sobre diversidad sexual y de género"
+author: 
+- name: José Daniel Conejeros
+  email: jdconejeros@uc.cl
+  corresponding: true
+  affiliations: Pontificia Universidad Católica de Chile
+- name: Javiera Porcel
+  email: jfporcel@uc.cl
+  corresponding: true
+date: today
+date-format: long
+title-block-banner: true
+format: 
+  html:
+    #css: "files/style.css"
+    #page-layout: full
+    embed-resources: true
+    smooth-scroll: true
+    fontcolor: black
+    toc: true
+    toc-location: left
+    toc-title: Indice
+    code-copy: true
+    code-link: true
+    code-fold: show
+    code-tools: true
+    code-summary: "Click para ver el código"
+    anchor-sections: true
+    code-overflow: wrap
+    fig-cap-location: top
+lang: es
+abstract-title: ""
+abstract: "[Accede a todos los códigos dando click aquí.](https://github.com/JDConejeros/ENSSEX_WKS25)"
+---
+
+## ¿Qué haremos en este bloque? 
+
+## Diseño muestral ENSSEX
+
+## Aplicación de un diseño muestral complejo en R
+
+### Uso de `surveydesign`
+
+### Resultados ponderados vs no ponderados
+
+### Algo más intuitivo `srvyr`
+
+## Estimaciones descriptivas ponderadas
+
+### Proporciones y medias ajustadas
+
+### Intervalos de confianza 
+
+### Comparación de subgrupos
+
+## Ajuste de varianzas y errores estándar
+
+### ¿Importa ajustar por el diseño muestral?
+
+## Replicación de resultados 
+
+## Ejercicio propuesto
+
+![](images/banner.png){fig-align="center" width="900"}

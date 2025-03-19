@@ -7,13 +7,13 @@ website:
     left:
       - href: index.qmd
         text: ENSSEX Workshop 2025
-      - href: B1.qmd
+      - href: B1.html
         text: Bloque 1
-      - href: B2.qmd
+      - href: B2.html
         text: Bloque 2
-      - href: B3.qmd
+      - href: B3.html
         text: Bloque 3
-      - href: B4.qmd
+      - href: B4.html
         text: Bloque 4
 lang: es    
 

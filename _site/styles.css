@@ -1,10 +1,10 @@
 /* css styles */
 .justify {
-  text-align: justify !important
+  text-align: justify !important;
 }
 
 .center {
-  text-align: center !important
+  text-align: center !important;
 }
 
 .footer-banner {
@@ -76,11 +76,14 @@ a:hover, a:focus {
 
 .tocify a, .sidebar a, nav a {
   color: #5D3A9B !important; /* Enlaces del TOC y menú en violeta oscuro */
-  font-weight: bold;
+  font-weight: normal; /* Sin negrita por defecto */
+  text-decoration: none;
 }
 
 .tocify a:hover, .sidebar a:hover, nav a:hover {
   color: #432F82 !important; /* Enlaces más oscuros al pasar el mouse */
+  font-weight: bold; /* Negrita en hover */
+  text-decoration: none;
 }
 
 /* 📢 Banner fijo al final en violeta oscuro */
@@ -145,4 +148,12 @@ a:hover, a:focus {
 
 .toggle-theme:hover {
   background-color: #432F82;
+}
+
+.scroll-box {
+  max-height: 600px;  /* Limita la altura */
+  overflow-y: auto;    /* Scroll vertical */
+  border: 1px solid white;
+  padding: 10px;
+  background-color: white;
 }

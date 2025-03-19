@@ -1,0 +1,325 @@
+---
+title: "Bloque 1"
+subtitle: |
+    | Exploración de los datos ENSSEX. 
+    | Primer congreso chileno de estudios interdisciplinarios sobre diversidad sexual y de género"
+author: 
+- name: José Daniel Conejeros
+  email: jdconejeros@uc.cl
+  corresponding: true
+  affiliations: Pontificia Universidad Católica de Chile
+- name: Javiera Porcel
+  email: jfporcel@uc.cl
+  corresponding: true
+date: today
+date-format: long
+title-block-banner: true
+format: 
+  html:
+    #css: "files/style.css"
+    #page-layout: full
+    embed-resources: true
+    smooth-scroll: true
+    fontcolor: black
+    toc: true
+    toc-location: left
+    toc-title: Indice
+    code-copy: true
+    code-link: true
+    code-fold: show
+    code-tools: true
+    code-summary: "Click para ver el código"
+    anchor-sections: true
+    code-overflow: wrap
+    fig-cap-location: top
+lang: es
+abstract-title: ""
+abstract: "[Accede a todos los códigos dando click aquí.](https://github.com/JDConejeros/ENSSEX_WKS25)"
+---
+
+## ¿Qué haremos en este bloque? 
+
+En este bloque nos enfocaremos en comprender la estructura, metodología y contenido de la ENSSEX. Exploraremos desde los objetivos y el diseño metodológico de la encuesta hasta la forma de explorar, manipular y analizar sus datos utilizando herramientas estadísticas. 
+
+## ¿Cómo se construyo la Encuesta Nacioanl de Salud, Sexualidad y Género 2022 - 2023?
+
+La Encuesta Nacional de Salud, Sexualidad y Género (ENSSEX) 2022-2023, fue realizada por el Ministerio de Salud y coordinada por el Departamento de Epidemiología, en alianza con la Universidad de Chile, Universidad Alberto Hurtado e Instituto de Estudios Demográficos de París, Francia. La Dirección de Estudios Sociales (DESUC) de la Universidad Católica de Chile fue la institución a cargo del trabajo de campo. 
+
+### Propósito y alcance de la encuesta 
+
+El objetivo de la ENSSEX es conocer las características de salud sexual de la población de 18 años y más, con el fin de producir evidencia para el diseño y evaluación de políticas públicas.
+
+La ENSSEX aborda temáticas relacionadas con la **salud sexual y reproductiva, prácticas sexuales, conductas de riesgo y percepciones sobre la sexualidad y género**. 
+
+### Proceso de construcción de datos
+
+La encuesta se aplicó de agosto a diciembre del año 2022, entrevistó a 20.932 individuos en las 16 regiones del país. La ENSSEX es representativa a nivel nacional, por sexo, edad y regional. 
+
+![](images/enssex_process.png){fig-align="center" width="900" .lightbox}
+
+### Diseño metodológico
+
+La ENSSEX se realizó a través de un cuestionario aplicado por encuestadores en tablet, sobre un universo que incluyó a personas mayores de 18 años en la zona urbana de las regiones de todo Chile.
+
+![](images/design.png){fig-align="center" width="900" .lightbox}
+
+Para más detalle puede revisar el [📄 manual de uso de base de datos y libro de códigos](https://epi.minsal.cl/wp-content/uploads/2024/05/MINSAL_ENSSEX_2022_2023_Manual_de_Uso_y_libro_de_codigos.pdf).
+
+::: {.cell}
+<iframe 
+    src="https://epi.minsal.cl/bases-de-datos/"
+    width="100%" 
+    height="600px" 
+    style="border: 1px solid #ccc;">
+</iframe>
+:::
+
+
+## Exploración inicial de la ENSSEX
+
+### Librerías a utilizar
+
+Para el análisis de los datos de la ENSSEX en R, se pueden utilizar las siguientes librerías:
+
+```{r}
+#| warning: false
+#| message: false
+#| echo: true
+
+# Para instalar manualmente 
+#install.packages("dplyr")
+#install.packages("rio")
+#install.packages("haven")
+#install.packages("janitor")
+#install.packages("labelled")
+#install.packages("tidyverse")
+#install.packages("naniar")
+#install.packages("sjPlot")
+
+# Cargamos las librerías de trabajo 
+library("tidyverse")
+library("rio")
+library("haven")
+library("janitor")
+library("labelled")
+library("naniar")
+library("sjPlot")
+```
+
+### ¿Importar, cargar o abrir los datos?
+
+Dependiendo del formato de los datos proporcionados (por ejemplo, SPSS, CSV, STATA), se utilizarán funciones específicas para su importación en R. Una forma general de abrir los datos es con la función `rio::import()`
+
+```{r}
+#| warning: false
+#| message: false
+#| echo: true
+?rio::import()
+```
+
+::: {.cell}
+<iframe 
+    src="https://cran.r-project.org/web/packages/rio/vignettes/rio.html"
+    width="100%" 
+    height="600px" 
+    style="border: 1px solid #ccc;">
+</iframe>
+:::
+
+```{r}
+#| warning: false
+#| message: false
+#| echo: true
+# Hay varios caminos para abrir los datos dependiendo el formato:
+data <- rio::import("data/20240516_ENSSEX_data.dta") # STATA
+data <- rio::import("data/20240516_enssex_data.sav") # SPSS
+data <- rio::import("data/20240516_ENSSEX_data.csv") # CSV
+data <- rio::import("data/20240516_enssex_data.rdata") # R
+
+# También podemos descargar los datos directamente desde el repositorio on-line.
+data <- rio::import("https://datos.gob.cl/dataset/c6983439-49f6-4e71-85fe-e8de6e73dae0/resource/ed81f50c-1c7d-43d9-9083-dfc161e0cd66/download/20240516_enssex_data.rdata")
+
+# "data" es solo una manera de nombrar el objeto en R
+```
+
+
+### Estructura general de datos
+
+La base de datos de la ENSSEX contiene 1123 variables y 20.392 observaciones. Las variables abarcan desde datos sociodemográficos hasta respuestas específicas sobre salud y sexualidad. Hagamos una revión general de la base de datos:
+
+
+```{r}
+#| warning: false
+#| message: false
+#| echo: true
+dim(data) # Dimensiones de los datos [filas, columnas]
+```
+
+::: {.cell .scroll-box}
+```{r}
+colnames(data) # Nombre de las columnas 
+```
+:::
+
+::: {.cell .scroll-box}
+```{r}
+dplyr::glimpse(data) # Tipos de variables 
+```
+:::
+
+### Variables, libro de códigos y manejo de etiquetas 
+
+El libro de códigos proporciona detalles sobre cada variable, incluyendo su nombre, etiqueta, valores posibles y frecuencias. Es esencial revisar este documento para entender el significado de cada variable y sus categorías, lo que facilita el análisis y la interpretación de los datos.
+
+Para más detalle puede revisar el [📄 manual de uso de base de datos y libro de códigos](https://epi.minsal.cl/wp-content/uploads/2024/05/MINSAL_ENSSEX_2022_2023_Manual_de_Uso_y_libro_de_codigos.pdf).
+
+Revisemos el tipo de algunas variables: 
+
+```{r}
+#| warning: false
+#| message: false
+#| echo: true
+# Exploremos la clase de variable 
+class(data$region) # Region
+typeof(data$region) 
+
+class(data$comuna) # Comuna 
+typeof(data$comuna) 
+
+class(data$p4) # Edad
+typeof(data$p4) 
+```
+
+Podemos chequear atributos de una variable:
+
+```{r}
+#| warning: false
+#| message: false
+#| echo: true
+unique(data$region)
+unique(data$comuna)
+unique(data$p4)
+```
+
+Podemos chequear etiquetas de una variable: 
+
+```{r}
+#| warning: false
+#| message: false
+#| echo: true
+# Revisamos los labels
+haven::print_labels(data$region)
+# Podemos remover etiquetas si es conveniente 
+data$region_sin_labs <- haven::zap_labels(data$region)
+unique(data$region_sin_labs)
+```
+
+Una mirada general: 
+
+::: {.cell .scroll-box}
+```{r}
+#| warning: false
+#| message: false
+#| echo: true
+sjPlot::view_df(data)
+```
+:::
+
+### Validación de datos 
+
+Evaluar casos duplicados: 
+
+```{r}
+#| warning: false
+#| message: false
+#| echo: true
+# Podemos evaluar si hay duplicados con el folio de la encuesta 
+table(duplicated(data$folio_encuesta))
+table(data$folio_encuesta)[table(data$folio_encuesta) > 1]
+
+# Otra manera de construir duplicados (dplyr)
+data_sin_dup <- data |>
+  # group_by(across(everything())) |>  # Consideramos todas las variables 
+  group_by(folio_encuesta, folio_manzana) |> # Consideramos algunas variables
+  mutate(duplicado = n() > 1) |> # Chequeamos si está duplicado
+  filter(duplicado != TRUE) |> # Filtramos los duplicados
+  ungroup()
+```
+
+Podemos verificar la consistencia y completitud de las variables:
+
+```{r}
+#| warning: false
+#| message: false
+#| echo: true
+#| lightbox:
+#|   group: r-graph
+#|   description: Figura de missing values 
+# Chequeamos missing values
+naniar::vis_miss(data[, c("folio_encuesta", "macro_region", "region", "comuna",
+                  "genero_separada", "orientacion_sexual_separado",
+                  "edad", 
+                  "relaciones_sexuales", 
+                  "edad_primera_rsex", 
+                  "lugar_primera_rsex", 
+                  "vinculo_primera_rsex"
+                  )])
+```
+
+Una librería muy útil para el análisis de casos pérdidos es `naniar` (<https://naniar.njtierney.com/>).
+
+Identificar y manejar valores atípicos o inconsistentes:
+
+```{r}
+#| warning: false
+#| message: false
+#| echo: true
+min(data$edad_primera_rsex, na.rm = TRUE) # Mínimo
+max(data$edad_primera_rsex, na.rm = TRUE) # Máximo
+summary(data$edad_primera_rsex) # Distribución
+```
+
+### Análisis exploratorio 
+
+```{r}
+#| warning: false
+#| message: false
+#| echo: true
+# Generamos algunas funciones
+sum <- function(x, data){
+  data |>
+    dplyr::summarize(count=length(na.omit(!!sym(x))),
+                     media=mean(!!sym(x), na.rm=TRUE),
+                     sd=sd(!!sym(x), na.rm=TRUE),
+                     min=min(!!sym(x), na.rm=TRUE),
+                     q25=quantile(!!sym(x), na.rm=TRUE, probs=0.25),
+                     q50=quantile(!!sym(x), na.rm=TRUE, probs=0.50),
+                     q75=quantile(!!sym(x), na.rm=TRUE, probs=0.75),
+                     max=max(!!sym(x), na.rm=TRUE))
+}
+
+tab <- function(x, data){
+  data |>
+    group_by(!!sym(x)) |>
+    summarise(n=n()) |>
+    ungroup() |>
+    drop_na() |> 
+    mutate(porcentaje=n/base::sum(n)*100)
+}
+
+# Exploramos para una variable numérica
+sum(data = data, x = "edad_primera_rsex")
+tab(data = data, x = "genero_separada")
+```
+
+**¿Qué podemos observar de estos análisis?**
+
+## Ejercicio propuesto
+
+Explore las siguientes preguntas del cuestionario y defina las acciones necesarias para el procesamiento de datos: 
+
+![](images/p202.png){fig-align="center" width="900"}
+
+Les recomiendo revisar el libro de códigos de la encuesta para tener una mejor comprensión de la encuesta. 
+
+![](images/banner.png){fig-align="center" width="900"}

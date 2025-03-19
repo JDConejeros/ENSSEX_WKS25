@@ -25,19 +25,19 @@ Este workshop busca capacitar a los participantes en el uso de datos de la Encue
 
 Tendremos 4 bloques de trabajo: 
 
-[**Bloque 1**](): **Exploración de los datos ENSSEX (09:00 – 11:00)**. *Tendremos unos 20 minutos iniciales para preparar nuestra estación de trabajo*
+[**Bloque 1**](https://jdconejeros.github.io/ENSSEX_WKS25/B1.html): **Exploración de los datos ENSSEX (09:00 – 11:00)**. *Tendremos unos 20 minutos iniciales para preparar nuestra estación de trabajo.*
 
 *Coffe Break*
 
-[**Bloque 2**](): **Uso de ponderadores y diseño de muestra compleja (11:30 – 13:00)**. 
+[**Bloque 2**](https://jdconejeros.github.io/ENSSEX_WKS25/B2.html): **Uso de ponderadores y diseño de muestra compleja (11:30 – 13:00)**. 
 
 *Almuerzo*
 
-[**Bloque 3**](): **Visualización de datos (14:00 – 16:00)**. 
+[**Bloque 3**](https://jdconejeros.github.io/ENSSEX_WKS25/B3.html): **Visualización de datos (14:00 – 16:00)**. 
 
 *Coffe Break*
 
-[**Bloque 4**](): **Modelamiento estadístico (16:30 – 18:30)**. 
+[**Bloque 4**](https://jdconejeros.github.io/ENSSEX_WKS25/B4.html): **Modelamiento estadístico (16:30 – 18:30)**. 
 
 Todos los bloques de trabajo serán en el mismo lugar: **Sala 3D, Campus B, Universidad Alberto Hurtado**. Avenida Los Leones 1200. Metro Los Leones, línea 1 y 6 Metro de Santiago.
 
@@ -67,7 +67,7 @@ Todos los bloques de trabajo serán en el mismo lugar: **Sala 3D, Campus B, Univ
 
 Este workshop no tiene requisitos previos, pero se valora conocimientos básicos de R y RStudio, además de cierta familiaridad con conceptos de estadística descriptiva e inferencial. 
 
-**La sala 3D dispone de computadores para trabajar, si usted quisiera llevar un computador** asegúrse de que cumpla con los siguiente requisitos (es el estándar de los computadores actuales): 
+**La sala 3D dispone de computadores para trabajar, si usted quisiera llevar un computador** asegúrese de que cumpla con los siguiente requisitos mínimos (es el estándar de los computadores actuales): 
 
 ✅ Procesador: Intel Core i5 (8ª generación o superior) / AMD Ryzen 5 o equivalente.
 
@@ -85,11 +85,11 @@ Este workshop no tiene requisitos previos, pero se valora conocimientos básicos
 
 ✅ RStudio versión 2023.09.0 o superior instalado.
 
-Para instalar ambos pueden acceder al siguiente enlace: <https://posit.co/download/rstudio-desktop/>
+Para instalar ambas herramientas pueden acceder al siguiente enlace: <https://posit.co/download/rstudio-desktop/>
 
 ![](images/r_rstudio.png){fig-align="center" width="900"}
 
-Pueden instalar ambos en menos de 4 minutos con estos videos: 
+Pueden instalar ambos en menos de 4 minutos con este video: 
 
 ::: {.cell}
 <iframe width="590" height="420" 
@@ -113,7 +113,7 @@ En 6 minutos pueden tener una idea clara de cómo es el trabajo en RStudio:
 
 ## Librerías de trabajo 
 
-Cada bloque tendrá librerías específicas de trabajo, pero si quieren avanzar pueden instalar los siguientes (copia y pega este código en tu consola de RStudio): 
+Cada bloque tendrá librerías específicas de trabajo, pero si quieren avanzar pueden instalar las siguientes (copia y pega este código en tu consola de RStudio): 
 
 ```{r}
 #| eval: false
@@ -140,20 +140,17 @@ Te dejamos una pequeña descripción de las librería de trabajo:
 | `survey`     | Análisis con ponderadores y diseños de muestra compleja. |
 | `srvyr`      | Versión más amigable del paquete `survey`, compatible con `tidyverse`. |
 | `ggplot2`    | Creación de gráficos personalizables. |
+| `rio`        | Carga y exportación sencilla de archivos de múltiples formatos (`.sav`, `.dta`, `.csv`, `.xlsx`). |
 | `haven`      | Importación de datos en formato SPSS, Stata y SAS. |
 | `broom`      | Presentación ordenada de resultados de modelos estadísticos. |
 | `janitor`    | Limpieza y formateo de datos, especialmente útil para tablas con nombres de variables desordenados. |
 | `labelled`   | Manejo de etiquetas en datos provenientes de encuestas. |
-| `rio`        | Carga y exportación sencilla de archivos de múltiples formatos (`.sav`, `.dta`, `.csv`, `.xlsx`). |
-| `gtsummary`  | Creación de tablas estadísticas descriptivas y de modelos. |
 
-
-**Estaremos disponibles desde las 8:30 para resolver dudas o problemas de instalación fuera de la sala del workshop**. Cualquier duda pueden escribir a  <jdconejeros@uc.cl>
+**Estaremos disponibles desde las 8:30 para resolver dudas o problemas de instalación fuera de la sala del workshop**. Cualquier pregunta pre y post workshop pueden escribir a <jdconejeros@uc.cl>
 
 ## Encuesta Nacional de Salud, Sexualidad y Género (ENSSEX) 2022-2023
 
 La Encuesta Nacional de Salud, Sexualidad y Género (ENSSEX) 2022-2023 es un instrumento clave para el análisis de la salud y la sexualidad en Chile, proporcionando información representativa a nivel nacional.
-
 
 **Descripción breve:**
 
@@ -174,7 +171,7 @@ La Encuesta Nacional de Salud, Sexualidad y Género (ENSSEX) 2022-2023 es un ins
 </iframe>
 :::
 
-Los datos están disponibles en formato abierto, permitiendo su uso para análisis estadísticos y estudios en diversas disciplinas. Recomendamos descargar los datos previamente (formato `.Rdata` o `.sav`), **Si tiene problemas para descargar los datos puede hacer click en el siguiente enlace:** 
+Los datos están disponibles en formato abierto, permitiendo su uso para análisis estadísticos y estudios en diversas disciplinas. Recomendamos descargar los datos previamente (formato `.Rdata` o `.sav`), **Si tiene problemas para descargar los datos pueden hacer click en alguno de los siguientes enlaces:** 
 
 - <https://epi.minsal.cl/bases-de-datos/> 
 
