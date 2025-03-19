@@ -130,18 +130,20 @@ Dependiendo del formato de los datos proporcionados (por ejemplo, SPSS, CSV, STA
 #| warning: false
 #| message: false
 #| echo: true
+#| eval: false
 # Hay varios caminos para abrir los datos dependiendo el formato:
-data <- rio::import("data/20240516_ENSSEX_data.dta") # STATA
-data <- rio::import("data/20240516_enssex_data.sav") # SPSS
-data <- rio::import("data/20240516_ENSSEX_data.csv") # CSV
-data <- rio::import("data/20240516_enssex_data.rdata") # R
+data <- rio::import("20240516_ENSSEX_data.dta") # STATA
+data <- rio::import("20240516_enssex_data.sav") # SPSS
+data <- rio::import("20240516_ENSSEX_data.csv") # CSV
+data <- rio::import("20240516_enssex_data.rdata") # R
+```
 
+```{r}
 # También podemos descargar los datos directamente desde el repositorio on-line.
 data <- rio::import("https://datos.gob.cl/dataset/c6983439-49f6-4e71-85fe-e8de6e73dae0/resource/ed81f50c-1c7d-43d9-9083-dfc161e0cd66/download/20240516_enssex_data.rdata")
 
 # "data" es solo una manera de nombrar el objeto en R
 ```
-
 
 ### Estructura general de datos
 
