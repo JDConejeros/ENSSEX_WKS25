@@ -125,7 +125,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="menu-text">ENSSEX Workshop 2025</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./B1.qmd"> 
+    <a class="nav-link" href="./B1.html"> 
 <span class="menu-text">Bloque 1</span></a>
   </li>  
   <li class="nav-item">
@@ -201,7 +201,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Fecha de publicación</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">18 de marzo de 2025</p>
+      <p class="date">19 de marzo de 2025</p>
     </div>
   </div>
   
@@ -226,7 +226,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="sobre-el-workshop">Sobre el workshop</h2>
 <p>Este workshop busca capacitar a los participantes en el uso de datos de la Encuesta Nacional de Salud, Sexualidad y Género (ENSSEX) 2022-2023, empleando herramientas de código abierto en R para un análisis reproducible y ético.</p>
 <p>Tendremos 4 bloques de trabajo:</p>
-<p><a href=""><strong>Bloque 1</strong></a>: <strong>Exploración de los datos ENSSEX (09:00 – 11:00)</strong>. <em>Tendremos unos 20 minutos iniciales para preparar nuestra estación de trabajo</em></p>
+<p><a href=""><strong>Bloque 1</strong></a>: <strong>Exploración de los datos ENSSEX (09:00 – 11:00)</strong>. <em>Tendremos unos 20 minutos iniciales para preparar nuestra estación de trabajo.</em></p>
 <p><em>Coffe Break</em></p>
 <p><a href=""><strong>Bloque 2</strong></a>: <strong>Uso de ponderadores y diseño de muestra compleja (11:30 – 13:00)</strong>.</p>
 <p><em>Almuerzo</em></p>
@@ -251,7 +251,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="requisitos" class="level2">
 <h2 class="anchored" data-anchor-id="requisitos">Requisitos</h2>
 <p>Este workshop no tiene requisitos previos, pero se valora conocimientos básicos de R y RStudio, además de cierta familiaridad con conceptos de estadística descriptiva e inferencial.</p>
-<p><strong>La sala 3D dispone de computadores para trabajar, si usted quisiera llevar un computador</strong> asegúrse de que cumpla con los siguiente requisitos (es el estándar de los computadores actuales):</p>
+<p><strong>La sala 3D dispone de computadores para trabajar, si usted quisiera llevar un computador</strong> asegúrese de que cumpla con los siguiente requisitos mínimos (es el estándar de los computadores actuales):</p>
 <p>✅ Procesador: Intel Core i5 (8ª generación o superior) / AMD Ryzen 5 o equivalente.</p>
 <p>✅ Memoria RAM: 8 GB de base (16 GB recomendado para un mejor rendimiento).</p>
 <p>✅ Espacio en disco: Al menos 10 GB de espacio libre en el disco duro o SSD (SSD recomendado para mayor velocidad).</p>
@@ -260,13 +260,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><strong>Para quiénes quieran llevar su computador</strong> les recomendamos encarecidamente llevar instalado:</p>
 <p>✅ R versión 4.2 o superior instalado.</p>
 <p>✅ RStudio versión 2023.09.0 o superior instalado.</p>
-<p>Para instalar ambos pueden acceder al siguiente enlace: <a href="https://posit.co/download/rstudio-desktop/" class="uri">https://posit.co/download/rstudio-desktop/</a></p>
+<p>Para instalar ambas herramientas pueden acceder al siguiente enlace: <a href="https://posit.co/download/rstudio-desktop/" class="uri">https://posit.co/download/rstudio-desktop/</a></p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/r_rstudio.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="900"></p>
 </figure>
 </div>
-<p>Pueden instalar ambos en menos de 4 minutos con estos videos:</p>
+<p>Pueden instalar ambos en menos de 4 minutos con este video:</p>
 <div class="cell">
 <iframe width="590" height="420" src="https://www.youtube.com/embed/RYa_xYWKPVM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="">
 </iframe>
@@ -279,7 +279,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="librerías-de-trabajo" class="level2">
 <h2 class="anchored" data-anchor-id="librerías-de-trabajo">Librerías de trabajo</h2>
-<p>Cada bloque tendrá librerías específicas de trabajo, pero si quieren avanzar pueden instalar los siguientes (copia y pega este código en tu consola de RStudio):</p>
+<p>Cada bloque tendrá librerías específicas de trabajo, pero si quieren avanzar pueden instalar las siguientes (copia y pega este código en tu consola de RStudio):</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Listamos las librerías necesarias para el workshop</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>paquetes <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"tidyverse"</span>, <span class="st">"survey"</span>, <span class="st">"srvyr"</span>, <span class="st">"ggplot2"</span>, <span class="st">"rio"</span>, </span>
@@ -325,32 +325,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td>Creación de gráficos personalizables.</td>
 </tr>
 <tr class="odd">
-<td><code>haven</code></td>
-<td>Importación de datos en formato SPSS, Stata y SAS.</td>
-</tr>
-<tr class="even">
-<td><code>broom</code></td>
-<td>Presentación ordenada de resultados de modelos estadísticos.</td>
-</tr>
-<tr class="odd">
-<td><code>janitor</code></td>
-<td>Limpieza y formateo de datos, especialmente útil para tablas con nombres de variables desordenados.</td>
-</tr>
-<tr class="even">
-<td><code>labelled</code></td>
-<td>Manejo de etiquetas en datos provenientes de encuestas.</td>
-</tr>
-<tr class="odd">
 <td><code>rio</code></td>
 <td>Carga y exportación sencilla de archivos de múltiples formatos (<code>.sav</code>, <code>.dta</code>, <code>.csv</code>, <code>.xlsx</code>).</td>
 </tr>
 <tr class="even">
-<td><code>gtsummary</code></td>
-<td>Creación de tablas estadísticas descriptivas y de modelos.</td>
+<td><code>haven</code></td>
+<td>Importación de datos en formato SPSS, Stata y SAS.</td>
+</tr>
+<tr class="odd">
+<td><code>broom</code></td>
+<td>Presentación ordenada de resultados de modelos estadísticos.</td>
+</tr>
+<tr class="even">
+<td><code>janitor</code></td>
+<td>Limpieza y formateo de datos, especialmente útil para tablas con nombres de variables desordenados.</td>
+</tr>
+<tr class="odd">
+<td><code>labelled</code></td>
+<td>Manejo de etiquetas en datos provenientes de encuestas.</td>
 </tr>
 </tbody>
 </table>
-<p><strong>Estaremos disponibles desde las 8:30 para resolver dudas o problemas de instalación fuera de la sala del workshop</strong>. Cualquier duda pueden escribir a <a href="mailto:jdconejeros@uc.cl" class="email">jdconejeros@uc.cl</a></p>
+<p><strong>Estaremos disponibles desde las 8:30 para resolver dudas o problemas de instalación fuera de la sala del workshop</strong>. Cualquier pregunta pre y post workshop pueden escribir a <a href="mailto:jdconejeros@uc.cl" class="email">jdconejeros@uc.cl</a></p>
 </section>
 <section id="encuesta-nacional-de-salud-sexualidad-y-género-enssex-2022-2023" class="level2">
 <h2 class="anchored" data-anchor-id="encuesta-nacional-de-salud-sexualidad-y-género-enssex-2022-2023">Encuesta Nacional de Salud, Sexualidad y Género (ENSSEX) 2022-2023</h2>
@@ -370,7 +366,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <iframe src="https://datos.gob.cl/dataset/encuesta-nacional-de-salud-sexualidad-y-genero-enssex-2022-2023" width="100%" height="600px" style="border: 1px solid #ccc;">
 </iframe>
 </div>
-<p>Los datos están disponibles en formato abierto, permitiendo su uso para análisis estadísticos y estudios en diversas disciplinas. Recomendamos descargar los datos previamente (formato <code>.Rdata</code> o <code>.sav</code>), <strong>Si tiene problemas para descargar los datos puede hacer click en el siguiente enlace:</strong></p>
+<p>Los datos están disponibles en formato abierto, permitiendo su uso para análisis estadísticos y estudios en diversas disciplinas. Recomendamos descargar los datos previamente (formato <code>.Rdata</code> o <code>.sav</code>), <strong>Si tiene problemas para descargar los datos pueden hacer click en alguno de los siguientes enlaces:</strong></p>
 <ul>
 <li><p><a href="https://epi.minsal.cl/bases-de-datos/" class="uri">https://epi.minsal.cl/bases-de-datos/</a></p></li>
 <li><p><a href="https://www.dropbox.com/scl/fo/c3ji5go7mp5bnvlbx2nv1/ADmu_3oR150ouZBIygzI4xU?rlkey=8cr09sh2sammtqchqa16bi252&amp;st=pemn0zxp&amp;dl=0" class="uri">https://www.dropbox.com/scl/fo/c3ji5go7mp5bnvlbx2nv1/ADmu_3oR150ouZBIygzI4xU?rlkey=8cr09sh2sammtqchqa16bi252&amp;st=pemn0zxp&amp;dl=0</a></p></li>
@@ -912,7 +908,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>Tendremos 4 bloques de trabajo: </span>
 <span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">**Bloque 1**</span><span class="co">]()</span>: **Exploración de los datos ENSSEX (09:00 – 11:00)**. *Tendremos unos 20 minutos iniciales para preparar nuestra estación de trabajo*</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">**Bloque 1**</span><span class="co">]()</span>: **Exploración de los datos ENSSEX (09:00 – 11:00)**. *Tendremos unos 20 minutos iniciales para preparar nuestra estación de trabajo.*</span>
 <span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>*Coffe Break*</span>
 <span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a></span>
@@ -954,7 +950,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a>Este workshop no tiene requisitos previos, pero se valora conocimientos básicos de R y RStudio, además de cierta familiaridad con conceptos de estadística descriptiva e inferencial. </span>
 <span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-70"><a href="#cb2-70" aria-hidden="true" tabindex="-1"></a>**La sala 3D dispone de computadores para trabajar, si usted quisiera llevar un computador** asegúrse de que cumpla con los siguiente requisitos (es el estándar de los computadores actuales): </span>
+<span id="cb2-70"><a href="#cb2-70" aria-hidden="true" tabindex="-1"></a>**La sala 3D dispone de computadores para trabajar, si usted quisiera llevar un computador** asegúrese de que cumpla con los siguiente requisitos mínimos (es el estándar de los computadores actuales): </span>
 <span id="cb2-71"><a href="#cb2-71" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-72"><a href="#cb2-72" aria-hidden="true" tabindex="-1"></a>✅ Procesador: Intel Core i5 (8ª generación o superior) / AMD Ryzen 5 o equivalente.</span>
 <span id="cb2-73"><a href="#cb2-73" aria-hidden="true" tabindex="-1"></a></span>
@@ -972,11 +968,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb2-85"><a href="#cb2-85" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-86"><a href="#cb2-86" aria-hidden="true" tabindex="-1"></a>✅ RStudio versión 2023.09.0 o superior instalado.</span>
 <span id="cb2-87"><a href="#cb2-87" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-88"><a href="#cb2-88" aria-hidden="true" tabindex="-1"></a>Para instalar ambos pueden acceder al siguiente enlace: <span class="ot">&lt;https://posit.co/download/rstudio-desktop/&gt;</span></span>
+<span id="cb2-88"><a href="#cb2-88" aria-hidden="true" tabindex="-1"></a>Para instalar ambas herramientas pueden acceder al siguiente enlace: <span class="ot">&lt;https://posit.co/download/rstudio-desktop/&gt;</span></span>
 <span id="cb2-89"><a href="#cb2-89" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-90"><a href="#cb2-90" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/r_rstudio.png)</span>{fig-align="center" width="900"}</span>
 <span id="cb2-91"><a href="#cb2-91" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-92"><a href="#cb2-92" aria-hidden="true" tabindex="-1"></a>Pueden instalar ambos en menos de 4 minutos con estos videos: </span>
+<span id="cb2-92"><a href="#cb2-92" aria-hidden="true" tabindex="-1"></a>Pueden instalar ambos en menos de 4 minutos con este video: </span>
 <span id="cb2-93"><a href="#cb2-93" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-94"><a href="#cb2-94" aria-hidden="true" tabindex="-1"></a>::: {.cell}</span>
 <span id="cb2-95"><a href="#cb2-95" aria-hidden="true" tabindex="-1"></a>&lt;iframe width="590" height="420" </span>
@@ -1000,7 +996,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb2-113"><a href="#cb2-113" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-114"><a href="#cb2-114" aria-hidden="true" tabindex="-1"></a><span class="fu">## Librerías de trabajo </span></span>
 <span id="cb2-115"><a href="#cb2-115" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-116"><a href="#cb2-116" aria-hidden="true" tabindex="-1"></a>Cada bloque tendrá librerías específicas de trabajo, pero si quieren avanzar pueden instalar los siguientes (copia y pega este código en tu consola de RStudio): </span>
+<span id="cb2-116"><a href="#cb2-116" aria-hidden="true" tabindex="-1"></a>Cada bloque tendrá librerías específicas de trabajo, pero si quieren avanzar pueden instalar las siguientes (copia y pega este código en tu consola de RStudio): </span>
 <span id="cb2-117"><a href="#cb2-117" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-120"><a href="#cb2-120" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
 <span id="cb2-121"><a href="#cb2-121" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
@@ -1027,57 +1023,54 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb2-142"><a href="#cb2-142" aria-hidden="true" tabindex="-1"></a>| <span class="in">`survey`</span>     | Análisis con ponderadores y diseños de muestra compleja. |</span>
 <span id="cb2-143"><a href="#cb2-143" aria-hidden="true" tabindex="-1"></a>| <span class="in">`srvyr`</span>      | Versión más amigable del paquete <span class="in">`survey`</span>, compatible con <span class="in">`tidyverse`</span>. |</span>
 <span id="cb2-144"><a href="#cb2-144" aria-hidden="true" tabindex="-1"></a>| <span class="in">`ggplot2`</span>    | Creación de gráficos personalizables. |</span>
-<span id="cb2-145"><a href="#cb2-145" aria-hidden="true" tabindex="-1"></a>| <span class="in">`haven`</span>      | Importación de datos en formato SPSS, Stata y SAS. |</span>
-<span id="cb2-146"><a href="#cb2-146" aria-hidden="true" tabindex="-1"></a>| <span class="in">`broom`</span>      | Presentación ordenada de resultados de modelos estadísticos. |</span>
-<span id="cb2-147"><a href="#cb2-147" aria-hidden="true" tabindex="-1"></a>| <span class="in">`janitor`</span>    | Limpieza y formateo de datos, especialmente útil para tablas con nombres de variables desordenados. |</span>
-<span id="cb2-148"><a href="#cb2-148" aria-hidden="true" tabindex="-1"></a>| <span class="in">`labelled`</span>   | Manejo de etiquetas en datos provenientes de encuestas. |</span>
-<span id="cb2-149"><a href="#cb2-149" aria-hidden="true" tabindex="-1"></a>| <span class="in">`rio`</span>        | Carga y exportación sencilla de archivos de múltiples formatos (<span class="in">`.sav`</span>, <span class="in">`.dta`</span>, <span class="in">`.csv`</span>, <span class="in">`.xlsx`</span>). |</span>
-<span id="cb2-150"><a href="#cb2-150" aria-hidden="true" tabindex="-1"></a>| <span class="in">`gtsummary`</span>  | Creación de tablas estadísticas descriptivas y de modelos. |</span>
-<span id="cb2-151"><a href="#cb2-151" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-145"><a href="#cb2-145" aria-hidden="true" tabindex="-1"></a>| <span class="in">`rio`</span>        | Carga y exportación sencilla de archivos de múltiples formatos (<span class="in">`.sav`</span>, <span class="in">`.dta`</span>, <span class="in">`.csv`</span>, <span class="in">`.xlsx`</span>). |</span>
+<span id="cb2-146"><a href="#cb2-146" aria-hidden="true" tabindex="-1"></a>| <span class="in">`haven`</span>      | Importación de datos en formato SPSS, Stata y SAS. |</span>
+<span id="cb2-147"><a href="#cb2-147" aria-hidden="true" tabindex="-1"></a>| <span class="in">`broom`</span>      | Presentación ordenada de resultados de modelos estadísticos. |</span>
+<span id="cb2-148"><a href="#cb2-148" aria-hidden="true" tabindex="-1"></a>| <span class="in">`janitor`</span>    | Limpieza y formateo de datos, especialmente útil para tablas con nombres de variables desordenados. |</span>
+<span id="cb2-149"><a href="#cb2-149" aria-hidden="true" tabindex="-1"></a>| <span class="in">`labelled`</span>   | Manejo de etiquetas en datos provenientes de encuestas. |</span>
+<span id="cb2-150"><a href="#cb2-150" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-151"><a href="#cb2-151" aria-hidden="true" tabindex="-1"></a>**Estaremos disponibles desde las 8:30 para resolver dudas o problemas de instalación fuera de la sala del workshop**. Cualquier pregunta pre y post workshop pueden escribir a <span class="ot">&lt;jdconejeros@uc.cl&gt;</span></span>
 <span id="cb2-152"><a href="#cb2-152" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-153"><a href="#cb2-153" aria-hidden="true" tabindex="-1"></a>**Estaremos disponibles desde las 8:30 para resolver dudas o problemas de instalación fuera de la sala del workshop**. Cualquier duda pueden escribir a  <span class="ot">&lt;jdconejeros@uc.cl&gt;</span></span>
+<span id="cb2-153"><a href="#cb2-153" aria-hidden="true" tabindex="-1"></a><span class="fu">## Encuesta Nacional de Salud, Sexualidad y Género (ENSSEX) 2022-2023</span></span>
 <span id="cb2-154"><a href="#cb2-154" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-155"><a href="#cb2-155" aria-hidden="true" tabindex="-1"></a><span class="fu">## Encuesta Nacional de Salud, Sexualidad y Género (ENSSEX) 2022-2023</span></span>
+<span id="cb2-155"><a href="#cb2-155" aria-hidden="true" tabindex="-1"></a>La Encuesta Nacional de Salud, Sexualidad y Género (ENSSEX) 2022-2023 es un instrumento clave para el análisis de la salud y la sexualidad en Chile, proporcionando información representativa a nivel nacional.</span>
 <span id="cb2-156"><a href="#cb2-156" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-157"><a href="#cb2-157" aria-hidden="true" tabindex="-1"></a>La Encuesta Nacional de Salud, Sexualidad y Género (ENSSEX) 2022-2023 es un instrumento clave para el análisis de la salud y la sexualidad en Chile, proporcionando información representativa a nivel nacional.</span>
+<span id="cb2-157"><a href="#cb2-157" aria-hidden="true" tabindex="-1"></a>**Descripción breve:**</span>
 <span id="cb2-158"><a href="#cb2-158" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-159"><a href="#cb2-159" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-160"><a href="#cb2-160" aria-hidden="true" tabindex="-1"></a>**Descripción breve:**</span>
-<span id="cb2-161"><a href="#cb2-161" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-162"><a href="#cb2-162" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>📅 **Año de levantamiento:** 2022-2023  </span>
-<span id="cb2-163"><a href="#cb2-163" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>📍 **Cobertura:** Nacional  </span>
-<span id="cb2-164"><a href="#cb2-164" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>📋 **Temas principales:** Salud, sexualidad, género, acceso a servicios de salud  </span>
-<span id="cb2-165"><a href="#cb2-165" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>📂 **Formato de datos:** CSV, SAV, XLSX, RDATA </span>
+<span id="cb2-159"><a href="#cb2-159" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>📅 **Año de levantamiento:** 2022-2023  </span>
+<span id="cb2-160"><a href="#cb2-160" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>📍 **Cobertura:** Nacional  </span>
+<span id="cb2-161"><a href="#cb2-161" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>📋 **Temas principales:** Salud, sexualidad, género, acceso a servicios de salud  </span>
+<span id="cb2-162"><a href="#cb2-162" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>📂 **Formato de datos:** CSV, SAV, XLSX, RDATA </span>
+<span id="cb2-163"><a href="#cb2-163" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-164"><a href="#cb2-164" aria-hidden="true" tabindex="-1"></a>🔗 **Datos oficiales:** <span class="co">[</span><span class="ot">Encuesta ENSSEX 2022-2023 en Datos.gob.cl</span><span class="co">](https://datos.gob.cl/dataset/encuesta-nacional-de-salud-sexualidad-y-genero-enssex-2022-2023)</span></span>
+<span id="cb2-165"><a href="#cb2-165" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-166"><a href="#cb2-166" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-167"><a href="#cb2-167" aria-hidden="true" tabindex="-1"></a>🔗 **Datos oficiales:** <span class="co">[</span><span class="ot">Encuesta ENSSEX 2022-2023 en Datos.gob.cl</span><span class="co">](https://datos.gob.cl/dataset/encuesta-nacional-de-salud-sexualidad-y-genero-enssex-2022-2023)</span></span>
-<span id="cb2-168"><a href="#cb2-168" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-169"><a href="#cb2-169" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-170"><a href="#cb2-170" aria-hidden="true" tabindex="-1"></a>::: {.cell}</span>
-<span id="cb2-171"><a href="#cb2-171" aria-hidden="true" tabindex="-1"></a>&lt;iframe </span>
-<span id="cb2-172"><a href="#cb2-172" aria-hidden="true" tabindex="-1"></a>    src="https://datos.gob.cl/dataset/encuesta-nacional-de-salud-sexualidad-y-genero-enssex-2022-2023"</span>
-<span id="cb2-173"><a href="#cb2-173" aria-hidden="true" tabindex="-1"></a>    width="100%" </span>
-<span id="cb2-174"><a href="#cb2-174" aria-hidden="true" tabindex="-1"></a>    height="600px" </span>
-<span id="cb2-175"><a href="#cb2-175" aria-hidden="true" tabindex="-1"></a>    style="border: 1px solid #ccc;"&gt;</span>
-<span id="cb2-176"><a href="#cb2-176" aria-hidden="true" tabindex="-1"></a>&lt;/iframe&gt;</span>
-<span id="cb2-177"><a href="#cb2-177" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb2-178"><a href="#cb2-178" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-179"><a href="#cb2-179" aria-hidden="true" tabindex="-1"></a>Los datos están disponibles en formato abierto, permitiendo su uso para análisis estadísticos y estudios en diversas disciplinas. Recomendamos descargar los datos previamente (formato <span class="in">`.Rdata`</span> o <span class="in">`.sav`</span>), **Si tiene problemas para descargar los datos puede hacer click en el siguiente enlace:** </span>
-<span id="cb2-180"><a href="#cb2-180" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-181"><a href="#cb2-181" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="ot">&lt;https://epi.minsal.cl/bases-de-datos/&gt;</span> </span>
-<span id="cb2-182"><a href="#cb2-182" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-183"><a href="#cb2-183" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="ot">&lt;https://www.dropbox.com/scl/fo/c3ji5go7mp5bnvlbx2nv1/ADmu_3oR150ouZBIygzI4xU?rlkey=8cr09sh2sammtqchqa16bi252&amp;st=pemn0zxp&amp;dl=0&gt;</span></span>
-<span id="cb2-184"><a href="#cb2-184" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-185"><a href="#cb2-185" aria-hidden="true" tabindex="-1"></a><span class="fu">## Links Complementarios</span></span>
-<span id="cb2-186"><a href="#cb2-186" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-187"><a href="#cb2-187" aria-hidden="true" tabindex="-1"></a>Para seguir profundizando les dejamos algunos enlaces de interés:</span>
-<span id="cb2-188"><a href="#cb2-188" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-189"><a href="#cb2-189" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">R para Ciencia de Datos</span><span class="co">](https://r4ds.hadley.nz/)</span>: Libro base para el uso de R, aquí podrán ver que la plataforma de Rstudio no es solo para el análisis estadístico, sino que de procesamiento de datos y reporte (versión en español).</span>
-<span id="cb2-190"><a href="#cb2-190" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-191"><a href="#cb2-191" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">AnalizaR Datos Políticos</span><span class="co">](https://arcruz0.github.io/libroadp/index.html)</span>: Manual con herramientas y tips prácticos para analizar datos políticos.</span>
-<span id="cb2-192"><a href="#cb2-192" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-193"><a href="#cb2-193" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">UCLA</span><span class="co">](https://stats.oarc.ucla.edu/r/)</span>: Espacio para aprender estadística y programación.</span>
-<span id="cb2-194"><a href="#cb2-194" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-195"><a href="#cb2-195" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Compendio de links útiles</span><span class="co">](https://www.lecy.info/r-for-public-policy)</span></span>
+<span id="cb2-167"><a href="#cb2-167" aria-hidden="true" tabindex="-1"></a>::: {.cell}</span>
+<span id="cb2-168"><a href="#cb2-168" aria-hidden="true" tabindex="-1"></a>&lt;iframe </span>
+<span id="cb2-169"><a href="#cb2-169" aria-hidden="true" tabindex="-1"></a>    src="https://datos.gob.cl/dataset/encuesta-nacional-de-salud-sexualidad-y-genero-enssex-2022-2023"</span>
+<span id="cb2-170"><a href="#cb2-170" aria-hidden="true" tabindex="-1"></a>    width="100%" </span>
+<span id="cb2-171"><a href="#cb2-171" aria-hidden="true" tabindex="-1"></a>    height="600px" </span>
+<span id="cb2-172"><a href="#cb2-172" aria-hidden="true" tabindex="-1"></a>    style="border: 1px solid #ccc;"&gt;</span>
+<span id="cb2-173"><a href="#cb2-173" aria-hidden="true" tabindex="-1"></a>&lt;/iframe&gt;</span>
+<span id="cb2-174"><a href="#cb2-174" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb2-175"><a href="#cb2-175" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-176"><a href="#cb2-176" aria-hidden="true" tabindex="-1"></a>Los datos están disponibles en formato abierto, permitiendo su uso para análisis estadísticos y estudios en diversas disciplinas. Recomendamos descargar los datos previamente (formato <span class="in">`.Rdata`</span> o <span class="in">`.sav`</span>), **Si tiene problemas para descargar los datos pueden hacer click en alguno de los siguientes enlaces:** </span>
+<span id="cb2-177"><a href="#cb2-177" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-178"><a href="#cb2-178" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="ot">&lt;https://epi.minsal.cl/bases-de-datos/&gt;</span> </span>
+<span id="cb2-179"><a href="#cb2-179" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-180"><a href="#cb2-180" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="ot">&lt;https://www.dropbox.com/scl/fo/c3ji5go7mp5bnvlbx2nv1/ADmu_3oR150ouZBIygzI4xU?rlkey=8cr09sh2sammtqchqa16bi252&amp;st=pemn0zxp&amp;dl=0&gt;</span></span>
+<span id="cb2-181"><a href="#cb2-181" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-182"><a href="#cb2-182" aria-hidden="true" tabindex="-1"></a><span class="fu">## Links Complementarios</span></span>
+<span id="cb2-183"><a href="#cb2-183" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-184"><a href="#cb2-184" aria-hidden="true" tabindex="-1"></a>Para seguir profundizando les dejamos algunos enlaces de interés:</span>
+<span id="cb2-185"><a href="#cb2-185" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-186"><a href="#cb2-186" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">R para Ciencia de Datos</span><span class="co">](https://r4ds.hadley.nz/)</span>: Libro base para el uso de R, aquí podrán ver que la plataforma de Rstudio no es solo para el análisis estadístico, sino que de procesamiento de datos y reporte (versión en español).</span>
+<span id="cb2-187"><a href="#cb2-187" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-188"><a href="#cb2-188" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">AnalizaR Datos Políticos</span><span class="co">](https://arcruz0.github.io/libroadp/index.html)</span>: Manual con herramientas y tips prácticos para analizar datos políticos.</span>
+<span id="cb2-189"><a href="#cb2-189" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-190"><a href="#cb2-190" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">UCLA</span><span class="co">](https://stats.oarc.ucla.edu/r/)</span>: Espacio para aprender estadística y programación.</span>
+<span id="cb2-191"><a href="#cb2-191" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-192"><a href="#cb2-192" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Compendio de links útiles</span><span class="co">](https://www.lecy.info/r-for-public-policy)</span></span>
 </code><button title="Copiar al portapapeles" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
