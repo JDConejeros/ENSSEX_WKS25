@@ -39,30 +39,299 @@ abstract: "[Accede a todos los códigos dando click aquí.](https://github.com/J
 
 ## ¿Qué haremos en este bloque? 
 
+En este bloque aprenderemos a utilizar herramientas para ajustar los cálculos estadísticos considerando el diseño muestral complejo de la Encuesta Nacional de Salud, Sexualidad y Género (ENSSEX) 2022-2023 en R Exploraremos cómo:
+
+- Cargar y aplicar un diseño muestral complejo usando `survey` y `srvyr`.
+- Comparar estimaciones ponderadas vs no ponderadas.
+- Calcular proporciones, medias ajustadas e intervalos de confianza.
+- Ajustar varianzas y errores estándar considerando la estructura del muestreo.
+
 ## Diseño muestral ENSSEX
+
+La ENSSEX es una encuesta con diseño probabilístico, por lo que que cada encuestado/a tiene una probabilidad de selección conocida. A su vez, para garantizar representatividad se utilizan factores de expansión y estratos de muestreo. Variable relevantes para definir el diseño muestral complejo:
+
+- ID de la persona encuestada: `folio_encuesta`
+- Ponderador muestral: `w_personas_cal`
+- Estrato de muestreo: `varstrat`
+- Conglomerado primario: `varunit`
+
+Para más detalle puede revisar el [📄 manual de factores de expansión](https://datos.gob.cl/dataset/c6983439-49f6-4e71-85fe-e8de6e73dae0/resource/b7fc0056-aea5-4519-a150-b474d7bb1119/download/minsal_enssex_2022_2023_informe_factores_de_expansion.pdf).
+
+**No ajustar por el diseño muestral puede generar errores estándar incorrectos y estimaciones sesgadas.**
 
 ## Aplicación de un diseño muestral complejo en R
 
-### Uso de `surveydesign`
+### Librerías a utilizar
+
+Para el análisis de los datos de la ENSSEX en R, se pueden utilizar las siguientes librerías:
+
+```{r}
+#| warning: false
+#| message: false
+#| echo: true
+#| results: hide
+
+# Para instalar manualmente 
+install.packages("tidyverse")
+install.packages("rio")
+install.packages("haven")
+install.packages("survey")
+install.packages("srvyr")
+
+# Cargamos las librerías de trabajo 
+library("tidyverse")
+library("rio")
+library("haven")
+library("survey")
+library("srvyr")
+```
+
+Abrimos los datos:
+
+```{r}
+#| warning: false
+#| message: false
+#| echo: true
+#| eval: false
+# Hay varios caminos para abrir los datos dependiendo el formato:
+data <- rio::import("20240516_enssex_data.rdata") # R
+```
+
+```{r}
+#| warning: false
+#| message: false
+#| include: false
+# También podemos descargar los datos directamente desde el repositorio on-line.
+data <- rio::import("https://datos.gob.cl/dataset/c6983439-49f6-4e71-85fe-e8de6e73dae0/resource/ed81f50c-1c7d-43d9-9083-dfc161e0cd66/download/20240516_enssex_data.rdata")
+
+# "data" es solo una manera de nombrar el objeto en R
+```
+
+Revisamos la distribución del ponderador:
+
+```{r}
+#| warning: false
+#| message: false
+#| echo: true
+summary(data$w_personas_cal)
+```
+
+### Uso de `svydesign`
+
+La librería `survey` escrito por Thomas Lumley permite ajustar análisis estadísticos a diseños muestrales complejos:
+
+- Ponderadores: ajustan la probabilidad de selección 
+- Estratos: agrupa unidades para mejorar la precisión 
+- Conglomerados: evita dependencias entre unidades
+
+Nos permite una aproximación inferencial más precisa a la población (parámetros desconocidos). La función `svydesign()` define la estructura del muestreo en R.
+
+La estructura estándar del código es: 
+
+| Parámetro         | Descripción |
+|-------------------|------------|
+| `id = ~cluster`  | Especifica la **unidad primaria de muestreo (UPM)** (Ej: comunas, hogares). |
+| `strata = ~estrato` | Define los **estratos de muestreo** (Ej: regiones, grupos socioeconómicos). |
+| `weights = ~ponderador` | Variable con **factores de expansión** (ponderadores muestrales). |
+| `data = data` | Base de datos de la encuesta. |
+| `nest = TRUE` | Indica que los **estratos están anidados en los conglomerados**. |
+
+```{r}
+#| warning: false
+#| message: false
+#| echo: true
+#| eval: false
+svydesign(id = ~cluster, 
+          strata = ~estrato, 
+          weights = ~ponderador, 
+          data = data, 
+          nest = TRUE
+  )
+```
+
+**Definamos el diseño para la ENSSEX**
+
+::: {.cell .scroll-box}
+```{r}
+#| warning: false
+#| message: false
+#| echo: true
+# Definir diseño muestral ENSSEX
+enssex_design <- svydesign(
+  id = ~varunit,   # UPM
+  strata = ~varstrat,    # Estratos
+  weights = ~ w_personas_cal,  # Ponderador muestral
+  data = data,
+  nest = TRUE,
+)
+
+# Revisar el diseño
+summary(enssex_design)
+```
+:::
 
 ### Resultados ponderados vs no ponderados
 
+Veamos el siguiente resultado: 
+
+P160. ¿Cuántos embarazos ha tenido a lo largo de su vida? incluya embarazos que terminaron en parto normal, parto prematuro, aborto, muerte fetal u otro problema.
+
+![](images/embarazos.png){fig-align="center" width="900" .lightbox}
+
+Estimemos directamente en R: 
+
+```{r}
+#| warning: false
+#| message: false
+#| echo: true
+# Resultado sin ponderar
+mean(data$p160, na.rm=TRUE)
+```
+
+Ahora ajustemos por el diseño muestral complejo: 
+
+```{r}
+#| warning: false
+#| message: false
+#| echo: true
+# Ajustar el manejo de PSU solitarias
+options(survey.lonely.psu = "adjust")
+
+# Resultado ajustados por diseño muestral
+svymean(~p160, design = enssex_design, na.rm = TRUE)
+```
+
+ La estimación ponderada refleja la estructura de la población, mientras que la no ponderada refleja solo la muestra.
+
 ### Algo más intuitivo `srvyr`
+
+La librería `srvyr` es una extensión de `survey` que permite trabajar con diseños muestrales complejos de una manera más sencilla y compatible con el enfoque `tidyverse` (como `dplyr` y `ggplot2`).
+
+Tenemos que definir en diseño de mana similar: 
+
+```{r}
+#| warning: false
+#| message: false
+#| echo: true
+enssex_srvyr <- data |>
+  as_survey_design(
+    ids = varunit,   # UPM
+    strata = varstrat,     # Estratos
+    weights = w_personas_cal,   # Ponderador muestral
+    nest = TRUE
+  )
+```
+
+Veamos un ejemplo: 
+
+```{r}
+#| warning: false
+#| message: false
+#| echo: true
+enssex_srvyr |>
+  summarise(media_embarazos = survey_mean(p160, na.rm = TRUE))
+```
+
+Esto es mucho más potente para todo lo que implica análisis descriptivo y visualización de datos. 
 
 ## Estimaciones descriptivas ponderadas
 
-### Proporciones y medias ajustadas
+Vamos a trabajar los siguientes ejemplos: 
+
+![](images/bienestar_full.png){fig-align="center" width="900" .lightbox}
+
+### Medias ajustadas
+
+```{r}
+#| warning: false
+#| message: false
+#| echo: true
+enssex_srvyr |>
+  mutate(i_6_p9=if_else(i_6_p9==9, NA, i_6_p9)) |> 
+  summarise(bienestar = survey_mean(i_6_p9, na.rm = TRUE))
+```
 
 ### Intervalos de confianza 
 
+```{r}
+#| warning: false
+#| message: false
+#| echo: true
+enssex_srvyr |>
+  mutate(i_6_p9=if_else(i_6_p9==9, NA, i_6_p9)) |> 
+  summarise(bienestar = survey_mean(i_6_p9, na.rm = TRUE, vartype = "ci"))
+```
+
 ### Comparación de subgrupos
+
+```{r}
+#| warning: false
+#| message: false
+#| echo: true
+enssex_srvyr |>
+  mutate(i_6_p9=if_else(i_6_p9==9, NA, i_6_p9)) |> 
+  group_by(p1) |> 
+  summarise(bienestar = survey_mean(i_6_p9, na.rm = TRUE, vartype = "ci"))
+```
+
+```{r}
+#| warning: false
+#| message: false
+#| echo: true
+enssex_srvyr |>
+  mutate(i_6_p9=if_else(i_6_p9==9, NA, i_6_p9)) |> 
+  mutate(etario=case_when(
+    edad >= 18 & edad <=29 ~ "18 a 29 años", 
+    edad >= 30 & edad <=39 ~ "30 a 39 años", 
+    edad >= 40 & edad <=49 ~ "40 a 49 años", 
+    edad >= 50 & edad <=59 ~ "50 a 59 años", 
+    edad >= 60 ~ "60 o más años", 
+    TRUE ~ NA
+  )) |> 
+  mutate(etario = factor(etario, levels=c("18 a 29 años", 
+                                          "30 a 39 años",
+                                          "40 a 49 años",
+                                          "50 a 59 años",
+                                          "60 o más años"))) |> 
+  group_by(p1, etario) |> 
+  summarise(bienestar = survey_mean(i_6_p9, na.rm = TRUE, vartype = "ci"))
+```
 
 ## Ajuste de varianzas y errores estándar
 
 ### ¿Importa ajustar por el diseño muestral?
 
-## Replicación de resultados 
+Comparamos errores estándar con y sin ponderadores:
+
+```{r}
+#| warning: false
+#| message: false
+#| echo: true
+# Sin diseño muestral
+summary(lm(edad_primera_rsex ~ p1, data = data))
+```
+
+
+```{r}
+#| warning: false
+#| message: false
+#| echo: true
+# Con diseño muestral
+summary(svyglm(edad_primera_rsex~ p1, design = enssex_design))
+```
+
+**Ajustar por el diseño corrige los errores estándar.**
 
 ## Ejercicio propuesto
+
+Replique los siguiente resultados con las variables `i_1_p9` a `i_6_p9`: 
+
+![](images/bienestar.png){fig-align="center" width="900" .lightbox}
+
+![](images/pregunta_bienestar.png){fig-align="center" width="900" .lightbox}
+
+Replique los siguientes resultados
+
+![](images/acoso.png){fig-align="center" width="900" .lightbox}
 
 ![](images/banner.png){fig-align="center" width="900"}
