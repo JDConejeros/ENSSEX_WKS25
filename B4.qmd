@@ -1,7 +1,7 @@
 ---
 title: "Bloque 4"
 subtitle: |
-    |  Modelamiento estadístico. 
+    | Modelamiento estadístico.
     | Primer congreso chileno de estudios interdisciplinarios sobre diversidad sexual y de género"
 author: 
 - name: José Daniel Conejeros
@@ -39,17 +39,437 @@ abstract: "[Accede a todos los códigos dando click aquí.](https://github.com/J
 
 ## ¿Qué haremos en este bloque? 
 
+Cuando trabajamos con diseños complejos no podemos usar métodos estadísticos tradicionales sin ajustar la varianza y los ponderadores muestrales. En este bloque exploraremos modelos de regresión lineal, logística y técnicas avanzadas para análisis de encuestas.
+
 ## Introducción a los modelos con encuestas
 
-## Regresión lineal y ANOVA
+### Preparamos los datos 
 
-## Regresión logística 
+Cargamos las librerías de trabajo: 
 
-## Aplicación I:  análisis de sobrevivencia 
+```{r}
+#| warning: false
+#| message: false
+#| echo: true
+#| results: hide
 
-## Aplicación II: Análisis de clusters y segmentación
+# Para instalar manualmente 
+install.packages("tidyverse")
+install.packages("rio")
+install.packages("haven")
+install.packages("survey")
+install.packages("srvyr")
+install.packages("vtable")
+install.packages("tidymodels")
+install.packages("texreg")
+install.packages("factoextra")
+install.packages("NbClust")
+
+# Cargamos las librerías de trabajo 
+library("tidyverse")
+library("rio")
+library("haven")
+library("survey")
+library("srvyr")
+library("vtable")
+library("tidymodels")
+library("texreg")
+library("factoextra")
+library("NbClust")
+```
+
+
+Abrimos los datos:
+
+```{r}
+#| warning: false
+#| message: false
+#| echo: true
+#| eval: false
+# Hay varios caminos para abrir los datos dependiendo el formato:
+data <- rio::import("20240516_enssex_data.rdata") # R
+```
+
+```{r}
+#| warning: false
+#| message: false
+#| include: false
+# También podemos descargar los datos directamente desde el repositorio on-line.
+data <- rio::import("https://datos.gob.cl/dataset/c6983439-49f6-4e71-85fe-e8de6e73dae0/resource/ed81f50c-1c7d-43d9-9083-dfc161e0cd66/download/20240516_enssex_data.rdata")
+
+# "data" es solo una manera de nombrar el objeto en R
+```
+
+Preparamos las variables: 
+
+```{r}
+#| warning: false
+#| message: false
+#| echo: true
+variables <- c("folio_encuesta", "macro_region", "region", 
+               "varstrat", # Pseuestrato
+               "varunit", # Pseudoconglomerado
+               "w_personas_cal", "w_personas_cal_nr_mod_hogar", # Ponderadores
+               "fecha", "edad_primera_rsex", "relaciones_sexuales", 
+               "p1", "genero_separada", "orientacion_sexual_separado",
+               "edad", "fecha_nacimiento_ano", 
+               "p34", # Conversaciones sobre sexualidad
+               "i_6_p9", # Bienestar con la vida sexual
+               "educ", 
+               "p247", # Victima de abuso sexual
+               "evaluacion_educacion_sexual", 
+               "lugar_primera_rsex", 
+               "vinculo_primera_rsex")
+
+data <- data |> 
+  dplyr::select(all_of(variables)) |> 
+  dplyr::mutate(fecha_encuesta=dmy(fecha),
+                agno_encuesta=year(fecha_encuesta), 
+                edad_val=agno_encuesta-edad, 
+                validacion_fecha_nac=if_else(edad_val==fecha_nacimiento_ano, 1, 0)) |> 
+  mutate(
+    macro_region=factor(macro_region, labels=c("Macrozona Norte",
+                                               "Macrozona Centro", 
+                                               "Macrozona Sur")),
+    region=factor(region, labels=c("Tarapacá", 
+                                   "Antofagasta", 
+                                   "Atacama", 
+                                   "Coquimbo",
+                                   "Valparaíso", 
+                                   "O'Higgins", 
+                                   "Maule", 
+                                   "Biobío", 
+                                   "La Araucanía", 
+                                   "Los Lagos", 
+                                   "Aysén", 
+                                   "Magallanes", 
+                                   "Metropolitana", 
+                                   "Los Ríos", 
+                                   "Arica y Parinacota", 
+                                   "Ñuble")),
+    sex=factor(p1, labels=c("Hombre", "Mujer")), 
+    genero=factor(genero_separada, labels=c("Masculino",
+                                            "Transgénero", 
+                                            "No binario", 
+                                            "Otro",
+                                            "Femenino",
+                                            "No responder")),
+    vinculo_primera_rsex=factor(vinculo_primera_rsex, labels = c("Pareja", 
+                                                       "Amigo/a",
+                                                       "Amigo/a con beneficios", 
+                                                       "Otro",
+                                                       "No responde")),
+     lugar_primera_rsex=factor(lugar_primera_rsex, labels = c("Casa propia", 
+                                                       "Casa de los padres",
+                                                       "Casa de amigos/as", 
+                                                       "Hotel",
+                                                       "Aire libre",
+                                                       "Otro",
+                                                       "No responde")),
+    cohorte=case_when(
+      fecha_nacimiento_ano<1950 ~ 1, 
+      fecha_nacimiento_ano>=1950 & fecha_nacimiento_ano<1960 ~ 2,
+      fecha_nacimiento_ano>=1960 & fecha_nacimiento_ano<1970 ~ 3,
+      fecha_nacimiento_ano>=1970 & fecha_nacimiento_ano<1980 ~ 4,
+      fecha_nacimiento_ano>=1980 & fecha_nacimiento_ano<1990 ~ 5,
+      fecha_nacimiento_ano>=1990 & fecha_nacimiento_ano<2000 ~ 6,
+      fecha_nacimiento_ano>=2000 ~ 7,
+      TRUE ~ NA
+    ), 
+    cohorte=factor(cohorte, labels = c("Cohorte < 1950", 
+                                     "Cohorte 1951-1960",
+                                     "Cohorte 1961-1970",
+                                     "Cohorte 1971-1980",
+                                     "Cohorte 1981-1990",
+                                     "Cohorte 1991-2000",
+                                     "Cohorte 2001-2005")),
+    p34=if_else(p34 %in% c(8,9), 3, p34-1),
+    p34=if_else(p34==2, 1, p34),
+    sexual_convers=factor(p34, labels = c("No", "Si", "No responde")), 
+    educ = factor(educ, labels=c("Primaria",
+                                 "Secundaria incompleta",
+                                 "Secondarian completa",
+                                 "Universitario")),
+    sexual_abuso = factor(p247, labels=c("Si", "No", "No responde")),
+    sexual_educ=factor(evaluacion_educacion_sexual, labels=c("Mal", 
+                                                             "Regular", 
+                                                             "Bien", 
+                                                             "Sin respuesta"
+                                                                  )),
+
+    bienestar=if_else(i_6_p9==9, NA, i_6_p9),
+    bienestar=as.numeric(bienestar)
+  ) |> 
+  dplyr::select(varstrat, varunit, w_personas_cal, 
+         macro_region, region,
+         bienestar,
+         edad_primera_rsex, 
+         vinculo_primera_rsex, lugar_primera_rsex,
+         sex, orientacion_sexual_separado, 
+         edad, cohorte, educ,
+         sexual_convers,
+         sexual_educ, 
+         sexual_abuso
+         ) |> 
+  drop_na() 
+```
+
+Revisamos nuestra tabla descriptiva: 
+
+```{r}
+#| warning: false
+#| message: false
+#| echo: true
+# Tabla de descriptivos sin ponderar 
+st(dplyr::select(data, !c("varstrat", "varunit", "w_personas_cal", "region")),
+   #labels=c("Identidad de género", "Grupo Etario", "Nivel educativo", "Víctima de violencia"),
+   digits = 3, 
+   out="kable", 
+   add.median = TRUE,
+   fixed.digits = TRUE, 
+   simple.kable = FALSE,
+   title="",
+   numformat = NA) %>%
+  kableExtra::kable_styling(latex_options = c("scale_down", "hold_position"),
+                            full_width = FALSE, fixed_thead = T)
+```
+
+### Regresión lineal 
+
+La **regresión lineal ponderada** estima la relación entre una variable dependiente continua $Y$ y un conjunto de predictores $X_1, X_2, \dots, X_p$:
+
+$$Y_i = \beta_0 + \beta_1 X_{i1} + \beta_2 X_{i2} + \dots + \beta_p X_{ip} + \varepsilon_i$$
+
+Donde:  
+- $Y_i$ es la variable dependiente (Ej: **edad de inicio sexual**).  
+- $X_{i1}, X_{i2}, \dots, X_{ip}$ son las variables explicativas (Ej: **sexo, nivel educativo, región**).  
+- $\beta_0$ es la intersección (constante).  
+- $\beta_p$ son los coeficientes de regresión.  
+- $\varepsilon_i$ es el **error aleatorio**.
+
+```{r}
+#| warning: false
+#| message: false
+#| echo: true
+# Sin diseño muestral
+m1 <- lm(bienestar ~ edad_primera_rsex + sex + orientacion_sexual_separado + 
+        edad + cohorte + educ + sexual_convers + sexual_educ, data=data)
+
+# Podemos ver los resultados de distintas maneras:
+summary(m1)
+tidy(m1)
+screenreg(l=list(m1), digits = 3)
+```
+
+```{r}
+#| warning: false
+#| message: false
+#| echo: true
+# Con diseño muestral
+# Definir diseño muestral ENSSEX
+enssex_design <- svydesign(
+  id = ~varunit,   # UPM
+  strata = ~varstrat,    # Estratos
+  weights = ~ w_personas_cal,  # Ponderador muestral
+  data = data,
+  nest = TRUE,
+)
+
+options(survey.lonely.psu = "adjust")
+
+# Estimamos
+m2 <- svyglm(bienestar ~ edad_primera_rsex + sex + orientacion_sexual_separado + 
+        edad + cohorte + educ + sexual_convers + sexual_educ, design = enssex_design)
+
+screenreg(l=list(m1, m2), digits = 3)
+```
+
+### Regresión logística 
+
+Cuando la variable dependiente es binaria $Y \in {0,1}$, usamos regresión logística ponderada:
+
+Donde:
+-	$P(Y_i = 1)$ es la probabilidad de que ocurra el evento (Ej: uso de anticonceptivos = 1, no uso = 0).
+-	$\frac{P(Y_i = 1)}{1 - P(Y_i = 1)}$ es el odds ratio (razón de probabilidades).
+-	$\beta_p$ representa el efecto de cada variable independiente sobre la probabilidad del evento.
+
+```{r}
+#| warning: false
+#| message: false
+#| echo: true
+# Modelo sin diseño muestral
+l1 <- glm(factor(bienestar>6) ~ edad_primera_rsex + sex + orientacion_sexual_separado + 
+        edad + cohorte + educ + sexual_convers + sexual_educ,
+        data=data,
+        family = binomial(link="logit"))
+
+# Modelo con diseño muestral
+l2 <- svyglm(factor(bienestar>6) ~ edad_primera_rsex + sex + orientacion_sexual_separado + 
+        edad + cohorte + educ + sexual_convers + sexual_educ,
+       design = enssex_design, 
+       family = quasibinomial())
+
+# Reportamos
+screenreg(l=list(l1, l2), digits = 3)
+tidy(l1, exponentiate = TRUE)
+tidy(l2, exponentiate = TRUE)
+```
+
+
+### Aplicación I:  análisis de sobrevivencia 
+
+El modelo de Cox (o regresión de riesgos proporcionales) se usa para tiempo hasta un evento (Ej: edad de primera relación sexual). Se expresa como:
+
+$$h(t | X) = h_0(t) \exp(\beta_1 X_1 + \beta_2 X_2 + \dots + \beta_p X_p)$$
+
+Donde:
+-	$h(t | X)$ es el riesgo instantáneo de que ocurra el evento en el tiempo ( t ).
+-	$h_0(t)$ es la función de riesgo base.
+-	$\beta_p$ son los coeficientes de las variables explicativas ( X_p ).
+
+```{r}
+#| warning: false
+#| message: false
+#| echo: true
+
+# Modelos de COX
+cox <- coxph(Surv(edad_primera_rsex) ~ bienestar + sex + orientacion_sexual_separado + edad + cohorte + educ + sexual_convers + sexual_educ, data = data)
+
+cox_ponderado <- svycoxph(Surv(edad_primera_rsex) ~ bienestar + sex + orientacion_sexual_separado + 
+        edad + cohorte + educ + sexual_convers + sexual_educ, design = enssex_design)
+
+# Modelos de AFT
+aft1 <- survreg(Surv(edad_primera_rsex) ~bienestar + sex + orientacion_sexual_separado + 
+        edad + cohorte + educ + sexual_convers + sexual_educ, data = data, dist = "gaussian")
+aft2 <- survreg(Surv(edad_primera_rsex) ~bienestar + sex + orientacion_sexual_separado + 
+        edad + cohorte + educ + sexual_convers + sexual_educ, data = data, dist = "logistic")
+aft3 <- survreg(Surv(edad_primera_rsex) ~bienestar + sex + orientacion_sexual_separado + 
+        edad + cohorte + educ + sexual_convers + sexual_educ, data = data, dist = "extreme")
+aft4 <- survreg(Surv(edad_primera_rsex) ~bienestar + sex + orientacion_sexual_separado + 
+        edad + cohorte + educ + sexual_convers + sexual_educ, data = data, dist = "weibull")
+aft5 <- survreg(Surv(edad_primera_rsex) ~bienestar + sex + orientacion_sexual_separado + 
+        edad + cohorte + educ + sexual_convers + sexual_educ, data = data, dist = "exponential")
+aft6 <- survreg(Surv(edad_primera_rsex) ~bienestar + sex + orientacion_sexual_separado + 
+        edad + cohorte + educ + sexual_convers + sexual_educ, data = data, dist = "lognormal")
+
+# Reportamos 
+summary(cox)
+summary(cox_ponderado)
+
+screenreg(l=list(cox, aft1, aft2, aft3, aft4, aft5, aft6), digits = 3,
+        custom.model.names = c("Cox", "AFT Gaussiano", "AFT Logístico", "AFT Extremo", 
+                               "AFT Weibull", "AFT Exponential", "AFT lognormal"))
+```
+
+### Aplicación II: Análisis de clusters y segmentación
+
+Agrupa observaciones según similitudes en sus características:
+
+$$\arg\min_S \sum_{i=1}^{k} \sum_{x \in S_i} | x - \mu_i |^2$$
+
+Donde:
+-	$S_i$ son los grupos (clusters).
+-	$\mu_i$ es el centroide de cada grupo.
+-	$x$ son los valores de las observaciones.
+
+Para esto utilizaremos un set de preguntas: 
+
+![](images/bienestar_all.png){fig-align="center" width="900" .lightbox}
+
+```{r}
+#| warning: false
+#| message: false
+#| echo: true
+# Usemos un set de preguntas
+data <- rio::import("https://datos.gob.cl/dataset/c6983439-49f6-4e71-85fe-e8de6e73dae0/resource/ed81f50c-1c7d-43d9-9083-dfc161e0cd66/download/20240516_enssex_data.rdata") |> 
+  select(ends_with("p9")) |> 
+  mutate(across(everything(), ~ zap_labels(na_if(., 9)))) |> 
+  drop_na()
+```
+
+```{r}
+#| warning: false
+#| message: false
+#| echo: true
+glimpse(data)
+```
+
+Veamos los descriptivos (sin ponderar): 
+
+```{r}
+#| warning: false
+#| message: false
+#| echo: true
+st(data,
+   digits = 3, 
+   out="kable", 
+   add.median = TRUE,
+   fixed.digits = TRUE, 
+   simple.kable = FALSE,
+   title="",
+   numformat = NA) %>%
+  kableExtra::kable_styling(latex_options = c("scale_down", "hold_position"),
+                            full_width = FALSE, fixed_thead = T)
+```
+
+¿Cuántos cluster? 
+
+```{r}
+#| warning: false
+#| message: false
+#| echo: true
+# Importante: estandarizar
+data_zscore <- scale(data)
+
+fviz_nbclust(data_zscore, 
+  kmeans, 
+  k.max = 6,
+  method = "wss") +  
+  theme_minimal()
+```
+
+Aplicamos nuestra estrategia de clustering 
+
+```{r}
+#| warning: false
+#| message: false
+#| echo: true
+set.seed(123)
+model.km <- kmeans(data_zscore, 
+                   iter.max=5,
+                   centers=3, 
+                   nstart=100, 
+                   trace = FALSE)
+
+summary(model.km)
+
+# Veamos los cluster
+data$cluster_kmedias <- model.km$cluster
+head(data)
+```
+
+Exploremos las categorías obtenidas:
+
+```{r}
+#| warning: false
+#| message: false
+#| echo: true
+# Visualicemos los cluster 
+fviz_cluster(model.km, data = data, geom = "point") +
+  labs(title=NULL) +
+  theme_light()
+```
+
+```{r}
+#| warning: false
+#| message: false
+#| echo: true
+# Exploremos los cluster
+aggregate(data[1:6], by=list(model.km$cluster), mean)
+```
 
 ## Ejercicio propuesto
 
+Piense en una pregunta de investigación que pueda ser respondida con datos con de la encuesta ENSSEX y proponga de forma intuitiva un modelo para este fenómeno. Implemente este modelo con las herramientas vistas en el workshop.
 
 ![](images/banner.png){fig-align="center" width="900"}
